@@ -16,16 +16,17 @@ A website where a fan can select the sport they want to follow, then select the 
 
 ## Architecture
 Frontend 
-1. Select Sport -> Sport_name. Sport = Database.Sport -> Sport_name_id
-	Sport_name_id -> Sport.Players, Sport.Matches, etc
+1. Select Sport -> Sport_name.  Sport_name = Database.Sport -> Sport_name_id
+	Sport_name_id -> Sport.Teams, Sport.Games, etc
 
-2. Select Player -> Player_name.  Name = Database.Players ->Player_id
-	Database.PlayerName_id -> D.Player_stats (includes basic info and games.)
+2. Select Player -> Team_name.  Team_Name = Database.Team ->Team_id
+	Database.TeamName_id -> D.Team_stats (includes basic info and games.)
 
 
 
-3.Select Top -> Rank of the opponent. Database.Player_rank = Database.Player_id1
-	-> Player_id -> Followed_Player, Player_id1 = OpponentPlayer, 
-	Database.Games -> Date,Players_id.
-	Create Table: Followed_player ‘’vs’’ Opponent_player
+3.Select Top -> Rank of the opponent. Database.Team_rank = Database.Team_id1
+	-> Team_id -> Followed_team, team_id1 = Opponent, 
+	Database.Games -> Date,Team_id.
+	Create Table: Followed ‘’vs’’ Opponent
 4. Email = email.user.  Database.emails -> send email with Table. 
+
