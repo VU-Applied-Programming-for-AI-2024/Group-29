@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 url = ""
 
-response = requests.get(url)
+response = request(url)
 
 if response.status_code == 200:
     data = response.json()
