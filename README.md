@@ -29,4 +29,3 @@ Frontend
 	Database.Games -> Date,Players_id.
 	Create Table: Followed_player ‘’vs’’ Opponent_player
 4. Email = email.user.  Database.emails -> send email with Table. 
-
