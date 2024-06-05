@@ -10,7 +10,7 @@ if response.status_code == 200:
     # ...
     
 for each in data:
-    print(each)
-    
+    print('competition', each['Name'])
+
 else:
     print("Error:", response.status_code)
