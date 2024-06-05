@@ -2,7 +2,7 @@
 // IMAGE OF THE REAL FRONTEND
 
 ## Brief description of the project
-A website where a fan can select the sport they want to follow, then select the team they want to follow, and then select what they want to be notified for. An example would be: choosing tennis, then picking every time Novak Djokovic is playing a top 10 tennis player.
+A website where a fan can select the sport they want to follow, then select the team they want to follow, and then select what they want to be notified for. An example would be: choosing football, then picking every time man city is playing a top 5 team in the epl. 
 
 ## Frontend mockup
 
