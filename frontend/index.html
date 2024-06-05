@@ -4,12 +4,58 @@
     <title>MYTEAM</title>
 
     <script>
-        function handleSubmit(event) { // JAVASCRIPT
-            event.preventDefault(); // Prevents page from reloading after submitting
-            document.getElementById('message').innerText = "Thank you for signing up! We have sent you an automatic email."; // Displays the thank you message
+        function handleSubmit(event) {
+            event.preventDefault(); // Prevents the default form submitting behavior
+            document.getElementById('message').innerText = "Thank you for signing up! We have sent you an automatic email.";
+        }
+
+        // Function to update team options based on selected league
+        function updateTeams() {
+            const league = document.getElementById('league').value;
+            const teamsDropdown = document.getElementById('team');
+            const teamsByLeague = {
+                "EPL": [
+                    { value: "arsenal", text: "Arsenal" },
+                    { value: "aston-villa", text: "Aston Villa" },
+                    { value: "bournemouth", text: "Bournemouth" },
+                    { value: "brentford", text: "Brentford" },
+                    { value: "brighton", text: "Brighton & Hove Albion" },
+                    { value: "burnley", text: "Burnley" },
+                    { value: "chelsea", text: "Chelsea" },
+                    { value: "crystal-palace", text: "Crystal Palace" },
+                    { value: "everton", text: "Everton" },
+                    { value: "fulham", text: "Fulham" },
+                    { value: "liverpool", text: "Liverpool" },
+                    { value: "luton-town", text: "Luton Town" },
+                    { value: "manchester-city", text: "Manchester City" },
+                    { value: "manchester-united", text: "Manchester United" },
+                    { value: "newcastle-united", text: "Newcastle United" },
+                    { value: "nottingham-forest", text: "Nottingham Forest" },
+                    { value: "sheffield-united", text: "Sheffield United" },
+                    { value: "tottenham-hotspur", text: "Tottenham Hotspur" },
+                    { value: "west-ham-united", text: "West Ham United" },
+                    { value: "wolverhampton-wanderers", text: "Wolverhampton Wanderers" }
+                ],
+                "La Liga": [
+                    { value: "real-madrid", text: "Real Madrid" },
+                    { value: "barcelona", text: "Barcelona" },
+                    { value: "atletico-madrid", text: "Atletico Madrid" },
+                    { value: "valencia", text: "Valencia" },
+                    { value: "sevilla", text: "Sevilla" }
+                ]
+            };
+
+            // Clear current options
+            teamsDropdown.options.length = 0;
+            // Add new options
+            if (teamsByLeague[league]) {
+                teamsByLeague[league].forEach(function(team) {
+                    const option = new Option(team.text, team.value);
+                    teamsDropdown.options.add(option);
+                });
+            }
         }
     </script>
-
 </head>
 <body>
     <h1>MYTEAM: for the fans</h1>
@@ -17,14 +63,14 @@
     <form onsubmit="handleSubmit(event)">
         <label for="sport">I want to follow: </label>
         <select id="sport" name="sport">
-            <option value="(sport)">(sport)</option>
             <option value="football">Football</option>
+            <!-- You can add other sports here -->
         </select>
     
         <br><br>
         <label for="league">I want to follow: </label>
-        <select id="league" name="league">
-            <option value="(league)">(league)</option>
+        <select id="league" name="league" onchange="updateTeams()"> <!-- onchange event handler to update teams -->
+            <option value="">Please select a league</option>
             <option value="EPL">EPL (Football)</option>
             <option value="La Liga">La Liga (Football)</option>
         </select>
@@ -32,33 +78,13 @@
         <br><br>
         <label for="team">Team I want to follow:</label>
         <select id="team" name="team">
-            <option value="team">(team)</option>
-            <option value="arsenal">Arsenal</option>
-            <option value="aston-villa">Aston Villa</option>
-            <option value="bournemouth">Bournemouth</option>
-            <option value="brentford">Brentford</option>
-            <option value="brighton">Brighton & Hove Albion</option>
-            <option value="burnley">Burnley</option>
-            <option value="chelsea">Chelsea</option>
-            <option value="crystal-palace">Crystal Palace</option>
-            <option value="everton">Everton</option>
-            <option value="fulham">Fulham</option>
-            <option value="liverpool">Liverpool</option>
-            <option value="luton-town">Luton Town</option>
-            <option value="manchester-city">Manchester City</option>
-            <option value="manchester-united">Manchester United</option>
-            <option value="newcastle-united">Newcastle United</option>
-            <option value="nottingham-forest">Nottingham Forest</option>
-            <option value="sheffield-united">Sheffield United</option>
-            <option value="tottenham-hotspur">Tottenham Hotspur</option>
-            <option value="west-ham-united">West Ham United</option>
-            <option value="wolverhampton-wanderers">Wolverhampton Wanderers</option>
+            <option value="">Select a team</option>
+            <!-- Teams are dynamically populated based on league selection -->
         </select>
 
         <br><br>
         <label for="custom">Notify me when my team plays a Premier League team that is in the:</label>
         <select id="custom" name="custom">
-            <option value="(custom)">(custom)</option>
             <option value="top3">Top 3</option>
             <option value="top5">Top 5</option>
             <option value="top10">Top 10</option>
@@ -66,16 +92,4 @@
 
         <br><br>
         <input type="checkbox" id="notify" name="notify">
-        <label for="notify">I want to receive emails for the given criteria on</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email">
-
-
-        <br><br>
-        <input type="submit" value="Submit">
-    </form>
-
-    <br><br>
-    <div id="message"></div> <!-- thank you message --> 
-
-</body>
-</html>
+        <label for="notify">
