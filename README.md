@@ -7,10 +7,10 @@ A website where a fan can select the sport they want to follow, then select the 
 ## Frontend mockup
 
 ## Team members
-Bastian Brinksma, bbr103
-Morris Nijland, mni105
-Denis Akmaikin dak201
-Bob Verniers, bvs207
+- Bastian Brinksma, bbr103
+- Morris Nijland, mni105
+- Denis Akmaikin dak201
+- Bob Verniers, bvs207
 
 ## Installation details
 
