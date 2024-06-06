@@ -1,19 +1,27 @@
-from flask import render_template, jsonify
+# vxFaxsQl6QnaXOBhmCG4dbPiWGfg6wykzKbZBqYGOn28ZZwvZ7pw8E5jtTxq key
+
+from flask import Flask, request, jsonify
 import requests
-from backend import app
+import http.client
+
+app = Flask(__name__)
 
 @app.route('/api', methods=['GET'])
-def index():
-    return render_template('index.html')
-
-@app.route('/api/data', methods=['GET'])
 def api():
-    authentication = 'https://api.sportmonks.com/api/v3/football/livescores?api_token=vxFaxsQl6QnaXOBhmCG4dbPiWGfg6wykzKbZBqYGOn28ZZwvZ7pw8E5jtTxq'
-    endpoint = "https://api.sportmonks.com/v3/football"  
-    response = requests.get(authentication)
+    conn = http.client.HTTPSConnection("api.sportmonks.com")
+    payload = ''
+    headers = {}
+    conn.request("GET", "/api/v3/football/teams?api_token=vxFaxsQl6QnaXOBhmCG4dbPiWGfg6wykzKbZBqYGOn28ZZwvZ7pw8E5jtTxq", payload, headers)
+    res = conn.getresponse()
+    data = res.read()
+    print(data.decode("utf-8"))
 
-    if response.status_code == 200:
-        data = response.json()
-        return jsonify(data)
-    else:
-        return jsonify({"error": response.status_code})
+if __name__ == '__main__':
+    app.run()
+
+
+
+
+
+
+
