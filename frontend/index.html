@@ -5,16 +5,45 @@
 
     <script>
         function handleSubmit(event) {
-            event.preventDefault(); // Prevents the default form submitting behavior
-            document.getElementById('message').innerText = "Thank you for signing up! We have sent you an automatic email.";
+            event.preventDefault(); 
+
+            const sport = document.getElementById('sport').value;
+            const league = document.getElementById('league').value;
+            const team = document.getElementById('team').value;
+            const custom = document.getElementById('customNotification').value; 
+            const notify = document.getElementById('notify').checked;
+
+            const formData = {
+                sport: sport,
+                league: league,
+                team: team,
+                custom: custom,
+                notify: notify
+            };
+
+            fetch('/api/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                document.getElementById('message').innerText = data.message; 
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
         }
 
-        // Function to update team options based on selected league
         function updateTeams() {
             const league = document.getElementById('league').value;
             const teamsDropdown = document.getElementById('team');
-            const placeholderLabel = document.getElementById('placeholderLabel');
             const customNotificationDiv = document.getElementById('customNotificationDiv');
+            const customDropdown = document.getElementById('customNotification'); 
+
             const teamsByLeague = {
                 "EPL": [
                     { value: "arsenal", text: "Arsenal" },
@@ -48,25 +77,24 @@
             };
 
             // Clear current options
-            teamsDropdown.options.length = 0;
+            teamsDropdown.innerHTML = "";
             // Add new options
             if (teamsByLeague[league]) {
                 teamsByLeague[league].forEach(function(team) {
                     const option = new Option(team.text, team.value);
-                    teamsDropdown.options.add(option);
+                    teamsDropdown.add(option);
                 });
             }
 
-            // Update placeholder text in the label
-            if (league === "EPL") {
-                placeholderLabel.innerText = "Premier League";
-                customNotificationDiv.style.display = "block";
-            } else if (league === "La Liga") {
-                placeholderLabel.innerText = "La Liga";
+            // Show customNotificationDiv if league is selected
+            if (league) {
                 customNotificationDiv.style.display = "block";
             } else {
                 customNotificationDiv.style.display = "none";
             }
+
+            // Update the placeholder text based on the selected league
+            document.getElementById('placeholderLabel').innerText = league;
         }
     </script>
 </head>
@@ -95,20 +123,20 @@
 
         <br><br>
         <div id="customNotificationDiv" style="display: none;">
-            <label for="custom">Notify me when my team plays a <span id="placeholderLabel">$SELECTION_PLACEHOLDER$</span> team that is in the:</label>
-            <select id="custom" name="custom">
+            <label for="customNotification">Notify me when my team plays a <span id="placeholderLabel">$SELECTION_PLACEHOLDER$</span> team that is in the:</label> <!-- Updated id -->
+            <select id="customNotification" name="customNotification">
                 <option value="top3">Top 3</option>
                 <option value="top5">Top 5</option>
                 <option value="top10">Top 10</option>
             </select>
         </div>
-
+        
         <br><br>
         <input type="checkbox" id="notify" name="notify">
         <label for="notify">Notify me</label>
 
         <br><br>
-        <button type="submit">Submit</button>
+        <button type="button" onclick="handleSubmit(event)">Submit</button>
     </form>
 
     <p id="message"></p>
