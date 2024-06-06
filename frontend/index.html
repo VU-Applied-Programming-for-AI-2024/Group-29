@@ -13,6 +13,8 @@
         function updateTeams() {
             const league = document.getElementById('league').value;
             const teamsDropdown = document.getElementById('team');
+            const placeholderLabel = document.getElementById('placeholderLabel');
+            const customNotificationDiv = document.getElementById('customNotificationDiv');
             const teamsByLeague = {
                 "EPL": [
                     { value: "arsenal", text: "Arsenal" },
@@ -54,6 +56,17 @@
                     teamsDropdown.options.add(option);
                 });
             }
+
+            // Update placeholder text in the label
+            if (league === "EPL") {
+                placeholderLabel.innerText = "Premier League";
+                customNotificationDiv.style.display = "block";
+            } else if (league === "La Liga") {
+                placeholderLabel.innerText = "La Liga";
+                customNotificationDiv.style.display = "block";
+            } else {
+                customNotificationDiv.style.display = "none";
+            }
         }
     </script>
 </head>
@@ -64,12 +77,11 @@
         <label for="sport">I want to follow: </label>
         <select id="sport" name="sport">
             <option value="football">Football</option>
-            <!-- You can add other sports here -->
         </select>
     
         <br><br>
         <label for="league">I want to follow: </label>
-        <select id="league" name="league" onchange="updateTeams()"> <!-- onchange event handler to update teams -->
+        <select id="league" name="league" onchange="updateTeams()"> 
             <option value="">Please select a league</option>
             <option value="EPL">EPL (Football)</option>
             <option value="La Liga">La Liga (Football)</option>
@@ -79,17 +91,26 @@
         <label for="team">Team I want to follow:</label>
         <select id="team" name="team">
             <option value="">Select a team</option>
-            <!-- Teams are dynamically populated based on league selection -->
         </select>
 
         <br><br>
-        <label for="custom">Notify me when my team plays a Premier League team that is in the:</label>
-        <select id="custom" name="custom">
-            <option value="top3">Top 3</option>
-            <option value="top5">Top 5</option>
-            <option value="top10">Top 10</option>
-        </select>
+        <div id="customNotificationDiv" style="display: none;">
+            <label for="custom">Notify me when my team plays a <span id="placeholderLabel">$SELECTION_PLACEHOLDER$</span> team that is in the:</label>
+            <select id="custom" name="custom">
+                <option value="top3">Top 3</option>
+                <option value="top5">Top 5</option>
+                <option value="top10">Top 10</option>
+            </select>
+        </div>
 
         <br><br>
         <input type="checkbox" id="notify" name="notify">
-        <label for="notify">
+        <label for="notify">Notify me</label>
+
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="message"></p>
+</body>
+</html>
