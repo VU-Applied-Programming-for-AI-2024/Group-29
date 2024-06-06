@@ -1,5 +1,4 @@
-from flask import Blueprint, jsonify
-
+from flask import Blueprint
 import http.client
 
 backend = Blueprint('backend', __name__)
@@ -13,5 +12,3 @@ def fetch_teams():
     res = conn.getresponse()
     data = res.read()
     return data.decode("utf-8")
-
-fetch_teams()
