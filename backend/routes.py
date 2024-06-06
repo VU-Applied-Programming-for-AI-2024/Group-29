@@ -1,10 +1,9 @@
 from flask import Blueprint, jsonify
+
 import http.client
 
-# Create a Blueprint for the backend routes
 backend = Blueprint('backend', __name__)
 
-# Define the route to fetch data from the external API
 @backend.route('/api', methods=['GET'])
 def fetch_teams():
     conn = http.client.HTTPSConnection("api.sportmonks.com")
@@ -15,7 +14,4 @@ def fetch_teams():
     data = res.read()
     return data.decode("utf-8")
 
-# Define another sample route
-@backend.route('/api/data', methods=['GET'])
-def get_data():
-    return jsonify({'data': 'This is your backend data'})
+fetch_teams()
