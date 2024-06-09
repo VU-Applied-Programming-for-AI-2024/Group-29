@@ -12,6 +12,8 @@
             const team = document.getElementById('team').value;
             const custom = document.getElementById('customNotification').value; 
             const notify = document.getElementById('notify').checked;
+            document.getElementById('message').innerText = "Thank you for signing up! Excited?"; // Displays the thank you message
+        
 
             const formData = {
                 sport: sport,
@@ -37,7 +39,7 @@
                 console.error('Error:', error);
             });
         }
-
+            
         function updateTeams() {
             const league = document.getElementById('league').value;
             const teamsDropdown = document.getElementById('team');
@@ -136,16 +138,15 @@
             <input type="checkbox" id="notify" name="notify">
             <label for="notify">Notify me</label>
         
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email">
+            <label for="email">on my email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email">
         
             <button type="button" onclick="handleSubmit(event)">Submit</button>
-            <p id="message"></p>
-        
-            <br><br>
         </form>
-    </form>
-    <p id="message"></p>
+
+        <br><br>
+        <div id="message"></div> <!-- thank you message --> 
+
     
 </body>
 </html>
