@@ -12,7 +12,7 @@
             const team = document.getElementById('team').value;
             const custom = document.getElementById('customNotification').value; 
             const notify = document.getElementById('notify').checked;
-            document.getElementById('message').innerText = "Thank you for signing up! Excited?"; // Displays the thank you message
+            document.getElementById('message').innerText = "Thank you for signing up! Excited?";
         
 
             const formData = {
@@ -78,9 +78,7 @@
                 ]
             };
 
-            // Clear current options
             teamsDropdown.innerHTML = "";
-            // Add new options
             if (teamsByLeague[league]) {
                 teamsByLeague[league].forEach(function(team) {
                     const option = new Option(team.text, team.value);
@@ -88,14 +86,12 @@
                 });
             }
 
-            // Show customNotificationDiv if league is selected
             if (league) {
                 customNotificationDiv.style.display = "block";
             } else {
                 customNotificationDiv.style.display = "none";
             }
 
-            // Update the placeholder text based on the selected league
             document.getElementById('placeholderLabel').innerText = league;
         }
     </script>
@@ -145,7 +141,7 @@
         </form>
 
         <br><br>
-        <div id="message"></div> <!-- thank you message --> 
+        <div id="message"></div> 
 
     
 </body>
