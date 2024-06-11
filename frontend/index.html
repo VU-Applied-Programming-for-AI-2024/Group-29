@@ -60,7 +60,7 @@
         <main>
             <div class="header">
                 <div class="header__logo">
-                    <img src="images/MyTEAM_Logo1.png" alt="MyTEAM_Logo">
+                    <img src="images/MyTEAM_Logo1.png" alt="MyTEAM_Logo" height="200px">
                 </div>
                 
               </div>
@@ -70,7 +70,7 @@
         <h3>     </h3>
         <form id="subscriptionForm">
             <div id="step1">
-                <label for="sport">Select Sport:</label>
+                <label for="sport">Preferences:</label>
                 <select id="sport" name="sport" required>
                     <option value="">Select a sport</option>
                     <option value="soccer">Soccer</option>
@@ -78,9 +78,9 @@
             </div>
     
             <div id="step2" >
-                <label for="league">Select Soccer League (Top 5):</label>
-                <select id="league" name="league" required>
-                    <option value="">Select a league</option>
+                <!-- <label for="league">Select Soccer League (Top 5):</label> -->
+                <select id="league" name="league" required aria-placeholder="hddd">
+                    <option value="">Select A League</option>
                     <option value="premier-league">Premier League</option>
     
                 </select>
@@ -88,8 +88,9 @@
             </div>
     
             <div id="step3" >
-                <label for="team">Select Team:</label>
+                <!-- <label for="team">Select Team:</label> -->
                 <select id="team" name="team" required>
+                    <option value="Select A Club">Select A Club</option>
                     <option value="Man City">Man City</option>
                     <option value="Liverpool">Liverpool</option>
                     <option value="Arsenal">Arsenal</option>
@@ -117,7 +118,6 @@
             <div id="step4">
                 <label for="emailFrequency">When do you want to receive emails? When my team plays against the: </label>
                 <select id="emailFrequency" name="emailFrequency" required>
-                    <option value="">Select frequency</option>
                     <option value="daily">Top 3</option>
                     <option value="weekly">Top 5</option>
                     <option value="monthly">Top 10</option>

@@ -10,7 +10,20 @@ body {
   font-family: 'Arial', sans-serif;
   background-color: #000000;
   display: flex;
+  margin-top: 2%;
   margin-left: 35%;
+  }
+
+nav {
+  border-radius: 6px;
+  background-image: linear-gradient(to right,
+    hsl(253, 63%, 37%) 13%,
+    hsl(245, 61%, 21%) 40%,
+    hsl(0, 0%, 0%) 86%
+  );
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  box-shadow: 1px 2px 4px rgb(20, 20, 20), 0 2px 6px rgb(10, 10, 10);
 }
 
 /* Navbar Styles */
@@ -21,7 +34,8 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  padding-top: 20px;
+  padding-top: 50px;
+  padding-right: 50px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -31,7 +45,7 @@ body {
 }
 
 .navbar__item {
-  margin: 20px 0;
+  margin: 30px 0;
   text-align: center;
 }
 
@@ -43,7 +57,8 @@ body {
 }
 
 .navbar__link:hover {
-  background-color: #003060;
+  /* background-color: #003060; */
+  color: black;
 }
 
 /* Main content styling */
@@ -55,38 +70,27 @@ main {
   align-items: center;
 }
 
-.header {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.header__logo {
-  font-size: 2em;
-  color: #333;
-}
 
 /* Form Styles */
 form {
   background-color: #ffffff;
-  padding: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 400px;
   width: 100%;
-}
-
-.form-group {
-  margin-bottom: 15px;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 100px;
 }
 
 label {
   display: block;
-  margin-bottom: 5px;
+  margin-top: 20px;
   font-weight: bold;
-  color: #333;
+  color: #ffffff;
 }
 
 select, input[type="email"], input[type="submit"], input[type="checkbox"] {
@@ -96,11 +100,10 @@ select, input[type="email"], input[type="submit"], input[type="checkbox"] {
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
 }
 
-select, input[type="email"] {
-  background-color: #f9f9f9;
-}
 
 input[type="submit"] {
   background-color: #323733;
@@ -109,11 +112,6 @@ input[type="submit"] {
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin-top: 20px;
-}
-
-input[type="submit"]:hover {
-  background-color: #218838;
 }
 
 input[type="checkbox"] {
@@ -132,16 +130,37 @@ form {
 }
 
 button, input[type="submit"] {
-  background-color: #007bff;
+  background-color: rgb(88, 32, 125);
   color: #fff;
-  padding: 10px 15px;
+  padding: 5px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
+  align-self: center;
+  border-radius: 10px;
+  margin-top: 12px;
 }
 
 button:hover, input[type="submit"]:hover {
-  background-color: #0056b3;
+  background-color: #581d6f;
+}
+
+/* Select dropdown styling */
+select {
+  background-position: right center;
+  background-repeat: no-repeat;
+  padding-right: 20px; /* Add space for arrow icon */
+  /* Other styling */
+  padding: 10px;
+  border: 2px solid #322063;
+  border-radius: 6px;
+  font-size: 15px;
+  color: #352467;
+}
+
+/* Hover effect */
+select:hover {
+  border-color: #999; /* Change border color on hover */
 }
