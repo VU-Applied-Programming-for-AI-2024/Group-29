@@ -17,3 +17,5 @@ def fetch_teams():
     data_json = json.loads(data.decode("utf-8"))
 
     return jsonify(data_json)
+
+# https://api.football-data.org/v4/teams/86/matches?status=SCHEDULED
