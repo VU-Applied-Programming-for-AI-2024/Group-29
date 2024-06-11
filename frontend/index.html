@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="style.css">
 
     <title>MYTEAM</title>
-
+    
     <script>
         function handleSubmit(event) {
             event.preventDefault(); 
@@ -40,174 +40,106 @@
                 console.error('Error:', error);
             });
         }
-            
-        function updateTeams() {
-            const league = document.getElementById('league').value;
-            const teamsDropdown = document.getElementById('team');
-            const customNotificationDiv = document.getElementById('customNotificationDiv');
-            const customDropdown = document.getElementById('customNotification'); 
-
-            const teamsByLeague = {
-                "EPL": [
-                    { value: 57, text: "Arsenal" },
-                    { value: "aston-villa", text: "Aston Villa" },
-                    { value: "bournemouth", text: "Bournemouth" },
-                    { value: "brentford", text: "Brentford" },
-                    { value: "brighton", text: "Brighton & Hove Albion" },
-                    { value: "burnley", text: "Burnley" },
-                    { value: "chelsea", text: "Chelsea" },
-                    { value: "crystal-palace", text: "Crystal Palace" },
-                    { value: "everton", text: "Everton" },
-                    { value: "fulham", text: "Fulham" },
-                    { value: "liverpool", text: "Liverpool" },
-                    { value: "luton-town", text: "Luton Town" },
-                    { value: 65, text: "Manchester City" },
-                    { value: 66, text: "Manchester United" },
-                    { value: 67, text: "Newcastle United" },
-                    { value: "nottingham-forest", text: "Nottingham Forest" },
-                    { value: "sheffield-united", text: "Sheffield United" },
-                    { value: "tottenham-hotspur", text: "Tottenham Hotspur" },
-                    { value: "west-ham-united", text: "West Ham United" },
-                    { value: "wolverhampton-wanderers", text: "Wolverhampton Wanderers" }
-                ],
-                "La Liga": [
-                    { value: "real-madrid", text: "Real Madrid" },
-                    { value: "barcelona", text: "Barcelona" },
-                    { value: "atletico-madrid", text: "Atletico Madrid" },
-                    { value: "valencia", text: "Valencia" },
-                    { value: "sevilla", text: "Sevilla" }
-                ]
-            };
-
-            teamsDropdown.innerHTML = "";
-            if (teamsByLeague[league]) {
-                teamsByLeague[league].forEach(function(team) {
-                    const option = new Option(team.text, team.value);
-                    teamsDropdown.add(option);
-                });
-            }
-
-            if (league) {
-                customNotificationDiv.style.display = "block";
-            } else {
-                customNotificationDiv.style.display = "none";
-            }
-
-            document.getElementById('placeholderLabel').innerText = league;
-        }
     </script>
 </head>
 <body>
-    <h1>MYTEAM: for the fans</h1>
-
+    <nav class="navbar">
+        <ul class="navbar__menu">
+            <li class="navbar__item">
+                <a href="#" class="navbar__link"><i data-feather="home"></i><span>Home</span></a>
+            </li>
+            <li class="navbar__item">
+                <a href="#" class="navbar__link"><i data-feather="help-circle"></i><span>Help</span></a>
+            </li>
+            <li class="navbar__item">
+                <a href="#" class="navbar__link"><i data-feather="settings"></i><span>Settings</span></a>
+            </li>
+        </ul>
+      </nav>
     <form onsubmit="handleSubmit(event)">
         <main>
             <div class="header">
                 <div class="header__logo">
                   <strong>LOGO</strong>
                 </div>
-                <nav class="navbar">
-                  <ul class="navbar__menu">
-                    <li class="navbar__item">
-                      <a href="#" class="navbar__link"><i data-feather="home"></i><span>Home</span> </a>
-                    </li>
-                    <li class="navbar__item">
-                      <a href="#" class="navbar__link"><i data-feather="message-square"></i><span>Messages</span></a>
-                    </li>
-                    <li class="navbar__item">
-                      <a href="#" class="navbar__link"><i data-feather="users"></i><span>Customers</span></a>
-                    </li>
-                    <li class="navbar__item">
-                      <a href="#" class="navbar__link"><i data-feather="folder"></i><span>Projects</span></a>
-                    </li>
-                    <li class="navbar__item">
-                      <a href="#" class="navbar__link"><i data-feather="archive"></i><span>Resources</span></a>
-                    </li>
-                    <li class="navbar__item">
-                      <a href="#" class="navbar__link"><i data-feather="help-circle"></i><span>Help</span></a>
-                    </li>
-                    <li class="navbar__item">
-                      <a href="#" class="navbar__link"><i data-feather="settings"></i><span>Settings</span></a>
-                    </li>
-                  </ul>
-                </nav>
+                
               </div>
             <h2></h2>
         </main>
-        <body>
-            <h3>     </h3>
-            <form id="subscriptionForm">
-                <div id="step1">
-                    <label for="sport">Select Sport:</label>
-                    <select id="sport" name="sport" required>
-                        <option value="">Select a sport</option>
-                        <option value="soccer">Soccer</option>
-                    </select>
-                </div>
+    <body>
+        <h3>     </h3>
+        <form id="subscriptionForm">
+            <div id="step1">
+                <label for="sport">Select Sport:</label>
+                <select id="sport" name="sport" required>
+                    <option value="">Select a sport</option>
+                    <option value="soccer">Soccer</option>
+                </select>
+            </div>
+    
+            <div id="step2" >
+                <label for="league">Select Soccer League (Top 5):</label>
+                <select id="league" name="league" required>
+                    <option value="">Select a league</option>
+                    <option value="premier-league">Premier League</option>
+    
+                </select>
+    
+            </div>
+    
+            <div id="step3" >
+                <label for="team">Select Team:</label>
+                <select id="team" name="team" required>
+                    <option value="Man City">Man City</option>
+                    <option value="Liverpool">Liverpool</option>
+                    <option value="Arsenal">Arsenal</option>
+                    <option value="Aston Villa">Aston Villa</option>
+                    <option value="Tottenham">Tottenham</option>
+                    <option value="Chelsea">Chelsea</option>
+                    <option value="Newcastle">Newcastle</option>
+                    <option value="Man Utd">Man Utd</option>
+                    <option value="West Ham">West Ham</option>
+                    <option value="Crystal Palace">Crystal Palace</option>
+                    <option value="Brighton">Brighton</option>
+                    <option value="Bournemouth">Bournemouth</option>
+                    <option value="Fulham">Fulham</option>
+                    <option value="Wolverhampton">Wolverhampton</option>
+                    <option value="Everton">Everton</option>
+                    <option value="Brentfors">Brentford</option>
+                    <option value="Forest">Forest</option>
+                    <option value="Luton">Luton</option>
+                    <option value="Burnley">Burnley</option>
+                    <option value="Sheff Utd">Sheff Utd</option>
+                </select>
+    
+            </div>
+    
+            <div id="step4">
+                <label for="emailFrequency">When do you want to receive emails? When my team plays against the: </label>
+                <select id="emailFrequency" name="emailFrequency" required>
+                    <option value="">Select frequency</option>
+                    <option value="daily">Top 3</option>
+                    <option value="weekly">Top 5</option>
+                    <option value="monthly">Top 10</option>
+                </select>
+    
+            </div>
+    
+            <div id="step5">
+                <label>
+                    <input type="checkbox" id="emailSubscription" name="emailSubscription" required>
+                    I want to receive emails about the top teams.
+                </label>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <button type="button" onclick="handleSubmit(event)">
+                <input type="submit" value="Submit">
+                <p id="message"></p>
+            </div>
+        </form>
+    
+        <script src="script.js"></script>
         
-                <div id="step2" >
-                    <label for="league">Select Soccer League (Top 5):</label>
-                    <select id="league" name="league" required>
-                        <option value="">Select a league</option>
-                        <option value="premier-league">Premier League</option>
-        
-                    </select>
-        
-                </div>
-        
-                <div id="step3" >
-                    <label for="team">Select Team:</label>
-                    <select id="team" name="team" required>
-                        <option value="Man City">Man City</option>
-                        <option value="Liverpool">Liverpool</option>
-                        <option value="Arsenal">Arsenal</option>
-                        <option value="Aston Villa">Aston Villa</option>
-                        <option value="Tottenham">Tottenham</option>
-                        <option value="Chelsea">Chelsea</option>
-                        <option value="Newcastle">Newcastle</option>
-                        <option value="Man Utd">Man Utd</option>
-                        <option value="West Ham">West Ham</option>
-                        <option value="Crystal Palace">Crystal Palace</option>
-                        <option value="Brighton">Brighton</option>
-                        <option value="Bournemouth">Bournemouth</option>
-                        <option value="Fulham">Fulham</option>
-                        <option value="Wolverhampton">Wolverhampton</option>
-                        <option value="Everton">Everton</option>
-                        <option value="Brentfors">Brentford</option>
-                        <option value="Forest">Forest</option>
-                        <option value="Luton">Luton</option>
-                        <option value="Burnley">Burnley</option>
-                        <option value="Sheff Utd">Sheff Utd</option>
-                    </select>
-        
-                </div>
-        
-                <div id="step4">
-                    <label for="emailFrequency">When do you want to receive emails? When my team plays against the: </label>
-                    <select id="emailFrequency" name="emailFrequency" required>
-                        <option value="">Select frequency</option>
-                        <option value="daily">Top 3</option>
-                        <option value="weekly">Top 5</option>
-                        <option value="monthly">Top 10</option>
-                    </select>
-        
-                </div>
-        
-                <div id="step5">
-                    <label>
-                        <input type="checkbox" id="emailSubscription" name="emailSubscription" required>
-                        I want to receive emails about the top teams.
-                    </label>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email">
-                    <button type="button" onclick="handleSubmit(event)">
-                    <input type="submit" value="Submit">
-                    <p id="message"></p>
-                </div>
-            </form>
-        
-            <script src="script.js"></script>
-            
-        </body>
-        </html>
+    </body>
+    </html>
         
