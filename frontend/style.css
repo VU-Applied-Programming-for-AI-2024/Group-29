@@ -8,9 +8,10 @@
 /* Body Styles */
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #e9f5e1;
+  background-color: #3d433a;
   display: flex;
   height: 100vh;
+  margin-left: 35%;
 }
 
 /* Navbar Styles */
