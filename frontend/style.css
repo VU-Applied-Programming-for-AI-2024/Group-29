@@ -14,29 +14,38 @@ body {
   margin-left: 35%;
   }
 
-nav {
-  border-radius: 6px;
-  background-image: linear-gradient(to right,
-    hsl(253, 63%, 37%) 13%,
-    hsl(245, 61%, 21%) 40%,
-    hsl(0, 0%, 0%) 86%
-  );
-  color: rgba(255, 255, 255, 0.6);
-  cursor: pointer;
-  box-shadow: 1px 2px 4px rgb(20, 20, 20), 0 2px 6px rgb(10, 10, 10);
+  nav {
+    border-radius: 6px;
+    background-image: linear-gradient(to right, #323733,  #000000); 
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3); 
+  }
+  
+  .menu-icon {
+    cursor: pointer;
+    color: white;
+    font-size: 35px; /* Adjust size as needed */
+    position: fixed; /* Keep it fixed during scroll */
+    top: 10px; /* Distance from the top */
+    left: 10px; /* Distance from the left */
+    z-index: 1000; /* Ensures it stays on top */
 }
 
-/* Navbar Styles */
 .navbar {
-  background-color: #50A2A7;
-  width: 200px;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding-top: 50px;
-  padding-right: 50px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    left: -250px; /* Start off-screen */
+    top: 0;
+    background-color: #626868;
+    overflow-x: hidden;
+    transition: 0.5s; /* Smooth transition */
+}
+
+.navbar__menu {
+    list-style-type: none;
+    padding: 0;
 }
 
 .navbar__menu {
@@ -130,7 +139,7 @@ form {
 }
 
 button, input[type="submit"] {
-  background-color: rgb(88, 32, 125);
+  background-color: #3626A7;
   color: #fff;
   padding: 5px 20px;
   border: none;
