@@ -41,27 +41,38 @@
             });
         }
     </script>
-</head>
-<body>
-    <nav class="navbar">
-        <ul class="navbar__menu">
-            <li class="navbar__item">
-                <a href="#" class="navbar__link"><i data-feather="home"></i><span>Home</span></a>
-            </li>
-            <li class="navbar__item">
-                <a href="#" class="navbar__link"><i data-feather="help-circle"></i><span>Help</span></a>
-            </li>
-            <li class="navbar__item">
-                <a href="#" class="navbar__link"><i data-feather="settings"></i><span>Settings</span></a>
-            </li>
-        </ul>
-      </nav>
+    <head>
+    <body>
+        <div class="menu-icon" onclick="toggleNav()">☰</div>
+        <nav class="navbar">
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="#" class="navbar__link"><i data-feather="home"></i><span>Home</span></a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#" class="navbar__link"><i data-feather="home"></i><span>Help</span></a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#" class="navbar__link"><i data-feather="settings"></i><span>Settings</span></a>
+                </li>
+            </ul>
+        </nav>
+        <script>   // JavaScript to toggle the nav bar
+            function toggleNav() {
+                var nav = document.querySelector('.navbar');
+                if (nav.style.left === '-250px') {
+                    nav.style.left = '0'; // Move in to 0 position from the left
+                } else {
+                    nav.style.left = '-250px'; // Hide back off-screen
+                }
+            }
+        </script>
+    </body>
     <form onsubmit="handleSubmit(event)">
         <main>
             <div class="header">
                 <div class="header__logo">
-                    <img src="images/MyTEAM_Logo.png" alt="MyTEAM_Logo">
-                  <strong>LOGO</strong>
+                    <img src="images/MyTEAM_Logo1.png" alt="MyTEAM_Logo" height="200px">
                 </div>
                 
               </div>
@@ -71,7 +82,7 @@
         <h3>     </h3>
         <form id="subscriptionForm">
             <div id="step1">
-                <label for="sport">Select Sport:</label>
+                <label for="sport">Preferences:</label>
                 <select id="sport" name="sport" required>
                     <option value="">Select a sport</option>
                     <option value="soccer">Soccer</option>
@@ -79,9 +90,9 @@
             </div>
     
             <div id="step2" >
-                <label for="league">Select Soccer League (Top 5):</label>
-                <select id="league" name="league" required>
-                    <option value="">Select a league</option>
+                <!-- <label for="league">Select Soccer League (Top 5):</label> -->
+                <select id="league" name="league" required aria-placeholder="hddd">
+                    <option value="">Select A League</option>
                     <option value="premier-league">Premier League</option>
     
                 </select>
@@ -89,8 +100,9 @@
             </div>
     
             <div id="step3" >
-                <label for="team">Select Team:</label>
+                <!-- <label for="team">Select Team:</label> -->
                 <select id="team" name="team" required>
+                    <option value="Select A Club">Select A Club</option>
                     <option value="Man City">Man City</option>
                     <option value="Liverpool">Liverpool</option>
                     <option value="Arsenal">Arsenal</option>
@@ -116,9 +128,8 @@
             </div>
     
             <div id="step4">
-                <label for="emailFrequency">When do you want to receive emails? When my team plays against the: </label>
+                <label for="emailFrequency">I want to recieve emails when my team plays against: </label>
                 <select id="emailFrequency" name="emailFrequency" required>
-                    <option value="">Select frequency</option>
                     <option value="daily">Top 3</option>
                     <option value="weekly">Top 5</option>
                     <option value="monthly">Top 10</option>
@@ -131,8 +142,8 @@
                     <input type="checkbox" id="emailSubscription" name="emailSubscription" required>
                     I want to receive emails about the top teams.
                 </label>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email">
+                <label for="email"> </label>
+                <input type="email" id="email" name="email" placeholder="E-Mail">
                 <button type="button" onclick="handleSubmit(event)">
                 <input type="submit" value="Submit">
                 <p id="message"></p>
