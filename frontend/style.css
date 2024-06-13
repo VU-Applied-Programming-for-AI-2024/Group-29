@@ -1,9 +1,3 @@
-/* Reset CSS */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 /* Body Styles */
 body {
@@ -12,6 +6,7 @@ body {
   display: flex;
   margin-top: 2%;
   margin-left: 35%;
+  transition: margin-left 0.3s;
   }
 
   nav {
@@ -91,11 +86,12 @@ form {
   text-align: center;
   margin-top: 20px;
   margin-bottom: 100px;
+  background-color: rgba(33, 32, 35, 0.9);
 }
 
 label {
   display: block;
-  margin-top: 30px;
+  margin-top: 20px;
   font-weight: bold;
   color: #ffffff;
 }
@@ -111,10 +107,9 @@ select, input[type="email"], input[type="submit"], input[type="checkbox"] {
   margin-bottom: 15px;
 }
 
-
 input[type="submit"] {
   background-color: #323733;
-  color: white;
+  color: rgb(120, 94, 94);
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
@@ -133,10 +128,6 @@ label[for="emailSubscription"] {
   margin-top: 20px;
 }
 
-form {
-  background-color: rgba(33, 32, 35, 0.9);
-}
-
 button, input[type="submit"] {
   background-color: #3626A7;
   color: #fff;
@@ -152,7 +143,7 @@ button, input[type="submit"] {
 }
 
 button:hover, input[type="submit"]:hover {
-  background-color: #581d6f;
+  background-color: #3626A7;
 }
 
 /* Select dropdown styling */
