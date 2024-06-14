@@ -2,7 +2,8 @@
 function toggleNav() {
     var nav = document.querySelector('.navbar');
     var body = document.querySelector('body');
-    if (nav.style.left === '-250px') {
+    var computedStyle = window.getComputedStyle(nav).left;
+    if (computedStyle === '-250px') {
         nav.style.left = '0'; // Move in to 0 position from the left
         body.style.marginLeft = '39%';
 
@@ -11,6 +12,7 @@ function toggleNav() {
         body.style.marginLeft = '34%';
 }
 }
+
 
 // Event that happens when submit is pressed
 function handleSubmit(event) {
