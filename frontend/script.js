@@ -1,20 +1,18 @@
+// For yhe navbar to pull in and out if clicked
 function toggleNav() {
     var nav = document.querySelector('.navbar');
     var body = document.querySelector('body');
     if (nav.style.left === '-250px') {
         nav.style.left = '0'; // Move in to 0 position from the left
+        body.style.marginLeft = '39%';
+
     } else {
         nav.style.left = '-250px'; // Hide back off-screen
-    }
-
-    if (body.style.marginLeft === '-35%') {
-        body.style.marginLeft = '30%';
-    }   else {
-        body.style.marginLeft = '35%';
-    }
+        body.style.marginLeft = '34%';
+}
 }
 
-
+// Event that happens when submit is pressed
 function handleSubmit(event) {
     event.preventDefault(); 
 
@@ -49,3 +47,25 @@ function handleSubmit(event) {
         console.error('Error:', error);
     });
 }
+
+
+// Event when light mode is switched on.
+document.addEventListener('DOMContentLoaded', () => {
+    const modeSwitch = document.getElementById('mode-switch');
+    const body = document.body;
+
+    // Check local storage for mode preference
+    const savedMode = localStorage.getItem('mode');
+    if (savedMode) {
+        body.classList.toggle('light-mode', savedMode === 'light');
+        modeSwitch.checked = savedMode === 'light';
+    }
+
+    modeSwitch.addEventListener('change', () => {
+        const isLightMode = modeSwitch.checked;
+        body.classList.toggle('light-mode', isLightMode);
+
+        // Save mode preference to local storage
+        localStorage.setItem('mode', isLightMode ? 'light' : 'dark');
+    });
+});
