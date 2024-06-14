@@ -5,7 +5,7 @@ body {
   background-color: #000000;
   display: flex;
   margin-top: 2%;
-  margin-left: 39%;
+  margin-left: 33.92%;
   transition: margin-left 0.5s;
   }
 
@@ -79,7 +79,6 @@ main {
 
 /* Form Styles */
 form {
-  background-color: #ffffff;
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 20px;
@@ -91,6 +90,8 @@ form {
   margin-top: 20px;
   margin-bottom: 100px;
   background-color: rgba(33, 32, 35, 0.9);
+  display: block;
+  box-sizing: border-box;
 }
 
 label {
