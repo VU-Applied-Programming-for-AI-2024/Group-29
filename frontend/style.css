@@ -156,7 +156,7 @@ button, input[type="submit"], input[type="button"] {
   margin-top: 12px;           
 }
  
-button:hover, input[type="submit"]:hover {
+button:hover, input[type="submit"]:hover, input[type="button"]:hover {
   background-color: #606566;  
 }
 
@@ -295,12 +295,12 @@ input:checked + .slider:before {
   box-shadow: none;
 }
 
-.light-mode button, .light-mode input[type="submit"] {
+.light-mode button, .light-mode input[type="submit"], .light-mode input[type="button"] {
   background-color: rgb(98, 219, 235);
   color: #ffffff; /* Dark text color for contrast */
 }
 
-.light-mode button:hover, .light-mode input[type="submit"]:hover {
+.light-mode button:hover, .light-mode input[type="submit"]:hover, .light-mode input[type="button"]:hover {
   background-color: #b0c4de; /* Even lighter on hover for interactive feedback */
 }
 
