@@ -271,7 +271,7 @@ input:checked + .slider:before {
 /* Light Mode Styles */
 .light-mode {
   background-color: #b0c4de; /* Light steel blue */
-  color: #000000;
+  color: #ffffff;
 }
 
 .light-mode form {
@@ -279,7 +279,7 @@ input:checked + .slider:before {
 }
 
 .light-mode h2 {
-  color: #000000;
+  color: rgb(231, 228, 250);
 }
 
 .light-mode .account-question .button {
@@ -310,7 +310,7 @@ input:checked + .slider:before {
 }
 
 .header-ts {
-  color: rgb(255, 255, 255);
+  color: rgb(231, 228, 250);
   margin-left: -35%;
 }
 
