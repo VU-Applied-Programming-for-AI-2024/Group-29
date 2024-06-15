@@ -16,7 +16,7 @@ body {
 
   nav {
     border-radius: 6px;
-    background-image: linear-gradient(to right, #323733,  #000000); 
+    background-image: linear-gradient(to right, #2f2f2f,  #000000); 
     color: rgba(255, 255, 255, 0.6);
     cursor: pointer;
     box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3); 
@@ -280,16 +280,24 @@ input:checked + .slider:before {
   color: #000000;
 }
 
-.light-mode input[type="submit"] {
-  background-color: #a2b9bc; /* Blue-grey color */
-  color: #000000;
-}
-
 .light-mode .account-question .button {
   background-color: #000000;
   color: #ffffff;
 }
 
 .light-mode nav {
-  background-image: linear-gradient(to right, #ffffff,  rgba(176, 196, 222, 0.9)); 
+  background-image: linear-gradient(to right, #769bca,  #b0c4de); 
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  box-shadow: none;
+}
+
+.light-mode button, .light-mode input[type="submit"] {
+  background-color: rgb(98, 219, 235);
+  color: #ffffff; /* Dark text color for contrast */
+}
+
+.light-mode button:hover, .light-mode input[type="submit"]:hover {
+  background-color: #b0c4de; /* Even lighter on hover for interactive feedback */
 }
