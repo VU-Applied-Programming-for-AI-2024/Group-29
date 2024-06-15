@@ -139,7 +139,7 @@ label[for="emailSubscription"] {
 }
 
 button, input[type="submit"] {
-  background-color: #626868; 
+  background-color: #474c4c; 
   color: #ffffff;             
   padding: 15px 30px;        
   font-size: 20px;            
@@ -155,7 +155,7 @@ button, input[type="submit"] {
 }
 
 button:hover, input[type="submit"]:hover {
-  background-color: #7a7f80; 
+  background-color: #606566; 
 }
 
 
