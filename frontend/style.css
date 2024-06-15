@@ -102,7 +102,7 @@ label {
   color: #ffffff;
 }
 
-select, input[type="email"], input[type="submit"], input[type="checkbox"], input[type="text"], input[type="password"] {
+select, input[type="submit"], input[type="checkbox"], input[type="text"], input[type="password"] {
   width: 100%;
   padding: 10px;
   margin-top: 10px;
@@ -113,6 +113,17 @@ select, input[type="email"], input[type="submit"], input[type="checkbox"], input
   margin-bottom: 15px;
 }
 
+select, input[type="email"] {
+  width: 100%; 
+  padding: 10px; 
+  margin-top: 10px; 
+  margin-bottom: 15px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px;
+  font-size: 14px; 
+  box-sizing: border-box; 
+  display: block; 
+}
 
 
 input[type="checkbox"] {
