@@ -138,7 +138,9 @@ label[for="emailSubscription"] {
   margin-top: 20px;
 }
 
-button, input[type="submit"] {
+
+
+button, input[type="submit"], input[type="button"] {
   background-color: #474c4c; 
   color: #ffffff;             
   padding: 15px 30px;        
@@ -301,3 +303,14 @@ input:checked + .slider:before {
 .light-mode button:hover, .light-mode input[type="submit"]:hover {
   background-color: #b0c4de; /* Even lighter on hover for interactive feedback */
 }
+
+.content {
+  color: rgb(231, 228, 250);
+  margin-left: -30%;
+}
+
+.header-ts {
+  color: rgb(255, 255, 255);
+  margin-left: -35%;
+}
+
