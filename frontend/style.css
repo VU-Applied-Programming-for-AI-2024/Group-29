@@ -334,7 +334,7 @@ input:checked + .slider:before {
 body {
   display: flex;
   flex-direction: column;
-  max-width: 100%;
+  /* max-width: 100%; */
 }
 
 
@@ -345,14 +345,16 @@ footer {
   color: #fff;
   padding: 20px 0;
   text-align: center;
-  width: 100%;
+  width: 180%;
   position: relative;
+  margin-left: -55%;
 }
 
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  margin-left: 0%;
 }
 
 .footer-links {
