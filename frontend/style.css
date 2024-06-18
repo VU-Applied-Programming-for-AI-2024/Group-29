@@ -351,6 +351,8 @@ footer {
   width: 150%;
   position: relative;
   margin-left: -50%;
+  transition: margin-left 0.3s ease; /* Smooth transition for footer */
+
 }
 
 .footer-container {
