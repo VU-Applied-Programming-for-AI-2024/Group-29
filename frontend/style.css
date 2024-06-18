@@ -329,3 +329,61 @@ input:checked + .slider:before {
   margin-left: -35%;
 }
 
+
+/* Main content should take up at least the remaining space */
+body {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+
+
+/* Style the footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 10px 0;
+}
+
+.footer-links li {
+  display: inline;
+  margin: 0 10px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #ff6347; /* Example hover color */
+}
+
+/* Optional: add some responsiveness */
+@media (max-width: 100%) {
+  .footer-links {
+      display: block;
+      text-align: center;
+  }
+
+  .footer-links li {
+      display: block;
+      margin: 5px 0;
+  }
+}
