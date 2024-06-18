@@ -344,11 +344,11 @@ body {
 
 /* Style the footer */
 footer {
-  background-color: #333;
+  background-color: #000000;
   color: #fff;
   padding: 20px 0;
   text-align: center;
-  width: 150%;
+  width: 50%;
   position: relative;
   margin-left: 0%;
   transition: margin-left 0.3s ease; /* Smooth transition for footer */

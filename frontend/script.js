@@ -2,20 +2,14 @@
 function toggleNav() {
     var nav = document.querySelector('.navbar');
     var body = document.querySelector('body');
-    var footer = document.querySelector('footer');
     var computedStyle = window.getComputedStyle(nav).left;
     if (computedStyle === '-250px') {
         nav.style.left = '0'; // Move in to 0 position from the left
         body.style.marginLeft = '39%';
-        footer.style.marginLeft = '-60%';
-        footer.style.width = '160%'
 
     } else {
         nav.style.left = '-250px'; // Hide back off-screen
         body.style.marginLeft = '34%';
-        footer.style.marginLeft = '-50%';
-        footer.style.width = '150%'
-
 }
 }
 
