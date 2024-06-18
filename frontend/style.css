@@ -350,7 +350,7 @@ footer {
   text-align: center;
   width: 150%;
   position: relative;
-  margin-left: -50%;
+  margin-left: 0%;
   transition: margin-left 0.3s ease; /* Smooth transition for footer */
 
 }
