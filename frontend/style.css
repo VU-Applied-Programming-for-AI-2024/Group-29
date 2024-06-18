@@ -318,7 +318,10 @@ input:checked + .slider:before {
 .light-mode button:hover, .light-mode input[type="submit"]:hover, .light-mode input[type="button"]:hover {
   background-color: #b0c4de; /* Even lighter on hover for interactive feedback */
 }
-
+.light-mode footer {
+  background-color: #95b0d3; /* Light steel blue */
+  color: rgb(106, 106, 106);
+}
 .content {
   color: rgb(106, 106, 106);
   margin-left: -30%;
