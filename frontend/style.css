@@ -65,7 +65,7 @@ body {
 
 .navbar__link:hover {
   /* background-color: #003060; */
-  color: black;
+  color: rgb(106, 106, 106);
 }
 
 /* Main content styling */
@@ -93,6 +93,7 @@ form {
   background-color: rgba(33, 32, 35, 0.9);
   display: block;
   box-sizing: border-box;
+  box-shadow: 0 0 200px 30px #535354;
 }
 
 label {
@@ -168,10 +169,10 @@ select {
   padding-right: 20px; /* Add space for arrow icon */
   /* Other styling */
   padding: 10px;
-  border: 2px solid #322063;
+  border: 0px solid #322063;
   border-radius: 6px;
   font-size: 15px;
-  color: #352467;
+  color: #353434;
 }
 
 /* Hover effect */
@@ -271,20 +272,22 @@ input:checked + .slider:before {
 /* Light Mode Styles */
 .light-mode {
   background-color: #b0c4de; /* Light steel blue */
-  color: #ffffff;
+  color: rgb(106, 106, 106)
 }
 
 .light-mode form {
   background-color: rgba(189, 204, 229, 0.9); /* Light steel blue with transparency */
+  color: rgb(106, 106, 106);
+  box-shadow: 0 0 100px 30px rgb(240, 240, 255) ;
 }
 
 .light-mode h2 {
-  color: rgb(231, 228, 250);
+  color: rgb(106, 106, 106);
 }
 
 .light-mode .account-question .button {
   background-color: #000000;
-  color: #ffffff;
+  color: rgb(106, 106, 106);
 }
 
 .light-mode nav {
@@ -297,7 +300,7 @@ input:checked + .slider:before {
 
 .light-mode button, .light-mode input[type="submit"], .light-mode input[type="button"] {
   background-color: rgb(98, 219, 235);
-  color: #ffffff; /* Dark text color for contrast */
+  color: #000000; /* Dark text color for contrast */
 }
 
 .light-mode button:hover, .light-mode input[type="submit"]:hover, .light-mode input[type="button"]:hover {
@@ -305,7 +308,7 @@ input:checked + .slider:before {
 }
 
 .content {
-  color: rgb(231, 228, 250);
+  color: rgb(106, 106, 106);
   margin-left: -30%;
 }
 
