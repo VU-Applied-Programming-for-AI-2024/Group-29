@@ -76,6 +76,7 @@ main {
     border-radius: 8px;
     background-color: rgba(33, 32, 35, 0.9);
     text-align: center;
+    box-shadow: 0 0 300px 30px #535354;
 }
 
 .login-form h2 {
@@ -152,6 +153,8 @@ button[type="submit"]:hover {
     background-color: rgba(33, 32, 35, 0.9);
     text-align: center;
     margin-top: 50px; /* Adjust as needed */
+    box-shadow: 0 0 300px 30px #535354;
+
 }
 
 .signup-form h2 {
