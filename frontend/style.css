@@ -9,6 +9,16 @@ body {
   transition: margin-left 0.5s;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   }
+.spark-shine {
+  position: absolute;
+  top: 50%; /* Adjust these to position the shine where you want */
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 70%);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
 
   h2 {
     color: #ffffff; 
@@ -144,7 +154,7 @@ label[for="emailSubscription"] {
 
 
 button, input[type="submit"], input[type="button"] {
-  background-color: #474c4c; 
+  background-color: #343838; 
   color: #ffffff;             
   padding: 15px 30px;        
   font-size: 20px;            
