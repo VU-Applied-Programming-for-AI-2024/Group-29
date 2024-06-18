@@ -319,7 +319,7 @@ input:checked + .slider:before {
   background-color: #b0c4de; /* Even lighter on hover for interactive feedback */
 }
 .light-mode footer {
-  background-color: #95b0d3; /* Light steel blue */
+  background-color: #b0c4de; /* Light steel blue */
   color: rgb(106, 106, 106);
 }
 .content {
