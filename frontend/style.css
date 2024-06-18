@@ -90,6 +90,7 @@ main {
 
 /* Form Styles */
 form {
+  position: relative; /* Make sure the position is set to relative */
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 20px;
@@ -103,7 +104,6 @@ form {
   background-color: rgba(33, 32, 35, 0.9);
   display: block;
   box-sizing: border-box;
-  /* box-shadow: 0 0 200px 30px #535354; */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -154,7 +154,7 @@ label[for="emailSubscription"] {
 
 
 button, input[type="submit"], input[type="button"] {
-  background-color: #343838; 
+  background-color: #262929; 
   color: #ffffff;             
   padding: 15px 30px;        
   font-size: 20px;            
