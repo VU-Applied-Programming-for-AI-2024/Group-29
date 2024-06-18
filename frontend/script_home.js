@@ -14,23 +14,22 @@ function toggleNav() {
 }
 
 
-// Event that happens when submit is pressed
+
+
 function handleSubmit(event) {
     event.preventDefault(); 
 
     const sport = document.getElementById('sport').value;
     const league = document.getElementById('league').value;
     const team = document.getElementById('team').value;
-    const custom = document.getElementById('customNotification').value; 
-    const email = document.getElementById('email').value; 
+    const emailSubscription = document.getElementById('emailSubscription').checked;
     document.getElementById('message').innerText = "Thank you for signing up! Excited?";
 
     const formData = {
         sport: sport,
         league: league,
         team: team,
-        custom: custom,
-        email: email
+        emailSubscription: emailSubscription
     };
 
     fetch('/api/submit', {
@@ -40,34 +39,36 @@ function handleSubmit(event) {
         },
         body: JSON.stringify(formData)
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
     .then(data => {
         console.log(data);
         document.getElementById('message').innerText = data.message; 
+
+        // Fetch fixtures after successful form submission
+        return fetch(`/api/teams/${team}`); // Adjust the endpoint as per your backend route
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data.fixtures);
+        document.getElementById('message').textContent += '\n' + JSON.stringify(data.fixtures, null, 2);
     })
     .catch(error => {
         console.error('Error:', error);
+        document.getElementById('message').innerText = 'An error occurred. Please try again.';
     });
 }
 
 
-// Event when light mode is switched on.
-document.addEventListener('DOMContentLoaded', () => {
-    const modeSwitch = document.getElementById('mode-switch');
-    const body = document.body;
 
-    // Check local storage for mode preference
-    const savedMode = localStorage.getItem('mode');
-    if (savedMode) {
-        body.classList.toggle('light-mode', savedMode === 'light');
-        modeSwitch.checked = savedMode === 'light';
-    }
 
-    modeSwitch.addEventListener('change', () => {
-        const isLightMode = modeSwitch.checked;
-        body.classList.toggle('light-mode', isLightMode);
 
-        // Save mode preference to local storage
-        localStorage.setItem('mode', isLightMode ? 'light' : 'dark');
-    });
-});

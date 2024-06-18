@@ -2,14 +2,12 @@
 <html>
 <head>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-
+    <script src="script_home.js" defer></script>
     <title>MYTEAM</title>
-    
-    <head>
-
+</head>
+<body>
     <div class="menu-icon" onclick="toggleNav()">☰</div>
-    <nav class="navbar"> 
+    <nav class="navbar">
         <ul class="navbar__menu">
             <li class="navbar__item">
                 <a href="login.html" class="navbar__link"><i data-feather="home"></i><span>Login</span></a>
@@ -21,7 +19,7 @@
                 <a href="mypreferences.html" class="navbar__link"><i data-feather="home"></i><span>My Preferences</span></a>
             </li>
             <li class="navbar__item">
-                <a href="team_selection.html" class="navbar__link"><i data-feather="info"></i><span>Team Selection</span></a> <!-- New line added -->
+                <a href="team_selection.html" class="navbar__link"><i data-feather="info"></i><span>Team Selection</span></a>
             </li>
             <li class="navbar__item">
                 <a href="standings.html" class="navbar__link"><i data-feather="settings"></i><span>Standings</span></a>
@@ -32,18 +30,14 @@
         </ul>
     </nav>
 
-    <form onsubmit="handleSubmit(event)">
-        <main>
-            <div class="header">
-                <div class="header__logo">
-                    <img src="images/MyTEAM_Logo1.png" alt="MyTEAM_Logo" height="200px">
-                </div>
-                
-              </div>
-        </main>
-    <body>
-        <h3>     </h3>
-        <form id="subscriptionForm">
+    <main>
+        <div class="header">
+            <div class="header__logo">
+                <img src="images/MyTEAM_Logo1.png" alt="MyTEAM_Logo" height="200px">
+            </div>
+        </div>
+
+        <form id="subscriptionForm" onsubmit="handleSubmit(event)">
             <div id="step1">
                 <label for="sport">Fill in this form to follow a new team!</label>
                 <select id="sport" name="sport" required>
@@ -51,46 +45,36 @@
                     <option value="soccer">Soccer</option>
                 </select>
             </div>
-    
-            <div id="step2" >
-                <!-- <label for="league">Select Soccer League (Top 5):</label> -->
-                <select id="league" name="league" required aria-placeholder="hddd">
+
+            <div id="step2">
+                <select id="league" name="league" required>
                     <option value="">Select A League</option>
                     <option value="Euro Cup">Euro Cup</option>
-    
                 </select>
-    
             </div>
-    
-            <div id="step3" >
-                <!-- <label for="team">Select Team:</label> -->
+
+            <div id="step3">
                 <select id="team" name="team" required>
-                    <option value="Select A Club">Select A Club</option>
+                    <option value="">Select A Club</option>
                     <option value="2">France</option>
                 </select>
             </div>
-    
-    
-    
+
             <div id="step4">
                 <label>
                     <input type="checkbox" id="emailSubscription" name="emailSubscription" required>
                     I want to import the matches to my calendar.
                 </label>
-                <input type="submit" value="Submit" onclick="handleSubmit(event)">
+                <input type="submit" value="Submit">
                 <p id="message"></p>
             </div>
-        </form> 
-        <footer>
-            <div class="footer-container">
-              <p>&copy; 2024 MyTeam. All rights reserved.</p>
-              <ul class="footer-links">
-                <li><a href="#home">+1 800 055 232</a></li>
-                <li><a href="#about">Netherlands, Amsterdam</a></li>
-                <li><a href="#contact">myteam@info.nl</a></li>
-              </ul>
-            </div>
-          </footer> 
-        </body>
-    </html>
-        
+        </form>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 MyTeam. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
