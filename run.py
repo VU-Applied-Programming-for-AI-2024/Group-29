@@ -7,7 +7,7 @@ app.register_blueprint(backend)
 
 @app.route('/')
 def serve_index():
-    return send_from_directory(app.static_folder, 'index.html')
+    return send_from_directory(app.static_folder, 'home.html')
 
 @app.route('/<path:path>')
 def serve_static(path):
