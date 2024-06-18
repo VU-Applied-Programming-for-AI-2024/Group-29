@@ -6,7 +6,7 @@ import dateutil.parser
 backend = Blueprint('backend', __name__)
 
 @backend.route('/api/teams', methods=['GET'])
-def get_team_fixtures(team_name):
+def get_team_fixtures(team_id):
     conn = http.client.HTTPSConnection("api-football-v1.p.rapidapi.com")
 
     headers = {
@@ -14,7 +14,7 @@ def get_team_fixtures(team_name):
         'X-RapidAPI-Host': "api-football-v1.p.rapidapi.com"
     }
 
-    conn.request("GET", f"/v2/fixtures/team/{id}/5858?timezone=Europe/Amsterdam", headers=headers)
+    conn.request("GET", f"/v2/fixtures/team/{team_id}/5858?timezone=Europe/Amsterdam", headers=headers)
 
     res = conn.getresponse()
     data = res.read()
@@ -22,7 +22,9 @@ def get_team_fixtures(team_name):
     data_str = data.decode("utf-8")
 
     data_json = json.loads(data_str)
+
     fixtures = data_json.get('api', {}).get('fixtures', [])
+
     team_fixtures = []
 
     for fixture in fixtures:
@@ -33,10 +35,12 @@ def get_team_fixtures(team_name):
         event_date_parsed = dateutil.parser.parse(event_date)
         event_date_formatted = event_date_parsed.strftime("%d %B %H:%M")
         
-        if home_team == team_name:
+        if fixture['homeTeam']['team_id'] == team_id:
             opponent = away_team
-        elif away_team == team_name:
+            team_name = home_team
+        elif fixture['awayTeam']['team_id'] == team_id:
             opponent = home_team
+            team_name = away_team
         else:
             continue
 
@@ -48,6 +52,3 @@ def get_team_fixtures(team_name):
 fixtures = get_team_fixtures(2)
 for fixture in fixtures:
     print(fixture)
-
-
-
