@@ -45,7 +45,7 @@ def get_team_fixtures(team_name):
     return team_fixtures
 
 
-fixtures = get_team_fixtures("France")
+fixtures = get_team_fixtures(2)
 for fixture in fixtures:
     print(fixture)
 
