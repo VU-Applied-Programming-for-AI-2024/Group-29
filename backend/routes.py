@@ -14,7 +14,7 @@ def get_team_fixtures(team_name):
         'X-RapidAPI-Host': "api-football-v1.p.rapidapi.com"
     }
 
-    conn.request("GET", "/v2/fixtures/team/2/5858?timezone=Europe/Amsterdam", headers=headers)
+    conn.request("GET", f"/v2/fixtures/team/{id}/5858?timezone=Europe/Amsterdam", headers=headers)
 
     res = conn.getresponse()
     data = res.read()
