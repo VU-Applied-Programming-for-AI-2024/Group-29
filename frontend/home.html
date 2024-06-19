@@ -69,6 +69,13 @@
                 <p id="message"></p>
             </div>
         </form>
+
+        <div class="match-details"> <!-- hidden by default -->
+            <p>Example: France vs Netherlands on June 21st at 21:00</p>
+            <button id="add-to-calendar">Add to Calendar</button>
+        </div>
+
+
     </main>
 
     <footer>
@@ -76,5 +83,14 @@
             <p>&copy; 2024 MyTeam. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('add-to-calendar').addEventListener('click', function() {
+            const googleCalendarUrl = 'https://www.google.com/calendar/render?action=TEMPLATE';
+    
+            window.open(googleCalendarUrl, '_blank');
+        });
+    </script>
+    
 </body>
 </html>
