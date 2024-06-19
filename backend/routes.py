@@ -1,7 +1,11 @@
 import json
+import os
 import http.client
 import dateutil.parser  # Import dateutil.parser for parsing dates
 from flask import Blueprint, jsonify, request
+from dotenv import load_dotenv
+
+load_dotenv()
 
 backend = Blueprint('backend', __name__)
 
@@ -11,7 +15,7 @@ def fetch_fixtures(team_id):
         conn = http.client.HTTPSConnection("api-football-v1.p.rapidapi.com")
 
         headers = {
-            'X-RapidAPI-Key': "d2e9c50e71msh9c1aa43d831af5cp1b4350jsnd108d9d34ba6",
+            'X-RapidAPI-Key': os.getenv('API_KEY'),
             'X-RapidAPI-Host': "api-football-v1.p.rapidapi.com"
         }
 
