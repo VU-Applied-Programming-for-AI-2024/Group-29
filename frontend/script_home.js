@@ -72,6 +72,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const modeSwitch = document.getElementById('mode-switch');
     const body = document.body;
 
+    if (!modeSwitch) {
+        return; 
+    }
+
     // Check local storage for mode preference
     const savedMode = localStorage.getItem('mode');
     if (savedMode) {
