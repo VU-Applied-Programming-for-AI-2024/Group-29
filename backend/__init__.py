@@ -3,12 +3,12 @@ from flask_cors import CORS
 from backend.routes import backend
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS to allow requests from other origins
+CORS(app)  # Enable CORS to allow requests from other domains
 
 app.register_blueprint(backend)
 
 @app.route('/api/submit', methods=['POST'])
-def submit_form():
+def submit_form(): # this function will be called when the form is submitted and sends a response to the route(routes.py) that sends the request
     try:
         data = request.json
         print("Form Data:", data)
