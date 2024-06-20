@@ -72,23 +72,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const modeSwitch = document.getElementById('mode-switch');
     const body = document.body;
 
-    if (!modeSwitch) {
-        return; 
+    // Function to apply the saved mode
+    const applySavedMode = () => {
+        const savedMode = localStorage.getItem('mode');
+        if (savedMode) {
+            body.classList.toggle('light-mode', savedMode === 'light');
+            if (modeSwitch) {
+                modeSwitch.checked = savedMode === 'light';
+            }
+        }
+    };
+
+    // Apply the saved mode when the DOM is loaded
+    applySavedMode();
+
+    if (modeSwitch) {
+        modeSwitch.addEventListener('change', () => {
+            const isLightMode = modeSwitch.checked;
+            body.classList.toggle('light-mode', isLightMode);
+
+            // Save mode preference to local storage
+            localStorage.setItem('mode', isLightMode ? 'light' : 'dark');
+        });
     }
-
-    // Check local storage for mode preference
-    const savedMode = localStorage.getItem('mode');
-    if (savedMode) {
-        body.classList.toggle('light-mode', savedMode === 'light');
-        modeSwitch.checked = savedMode === 'light';
-    }
-
-    modeSwitch.addEventListener('change', () => {
-        const isLightMode = modeSwitch.checked;
-        body.classList.toggle('light-mode', isLightMode);
-
-        // Save mode preference to local storage
-        localStorage.setItem('mode', isLightMode ? 'light' : 'dark');
-    });
 });
-
