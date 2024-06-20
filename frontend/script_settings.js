@@ -1,23 +1,34 @@
-// Event when light mode is switched on.
 document.addEventListener('DOMContentLoaded', () => {
     const modeSwitch = document.getElementById('mode-switch');
     const body = document.body;
 
-    // Check local storage for mode preference
-    const savedMode = localStorage.getItem('mode');
-    if (savedMode) {
-        body.classList.toggle('light-mode', savedMode === 'light');
-        modeSwitch.checked = savedMode === 'light';
+    // Function to apply the saved mode
+    const applySavedMode = () => {
+        const savedMode = localStorage.getItem('mode');
+        if (savedMode) {
+            body.classList.toggle('light-mode', savedMode === 'light');
+            if (modeSwitch) {
+                modeSwitch.checked = savedMode === 'light';
+            }
+        }
+    };
+
+    // Apply the saved mode when the DOM is loaded
+    applySavedMode();
+
+    if (modeSwitch) {
+        modeSwitch.addEventListener('change', () => {
+            const isLightMode = modeSwitch.checked;
+            body.classList.toggle('light-mode', isLightMode);
+
+            // Save mode preference to local storage
+            localStorage.setItem('mode', isLightMode ? 'light' : 'dark');
+        });
     }
-
-    modeSwitch.addEventListener('change', () => {
-        const isLightMode = modeSwitch.checked;
-        body.classList.toggle('light-mode', isLightMode);
-
-        // Save mode preference to local storage
-        localStorage.setItem('mode', isLightMode ? 'light' : 'dark');
-    });
 });
+
+
+
 
 // For yhe navbar to pull in and out if clicked
 function toggleNav() {
