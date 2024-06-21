@@ -84,16 +84,14 @@ main {
     margin-bottom: 20px;
 }
 
-.input-group {
-    margin-bottom: 15px;
-    text-align: left;
-}
 
-label {
+.login-form label,
+.signup-form label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
     color: #ffffff;
+    text-align: left; /* Align label text to the left */
 }
 
 input[type="text"],
@@ -167,12 +165,7 @@ button[type="submit"]:hover {
     text-align: left;
 }
 
-.signup-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #ffffff;
-}
+
 
 .signup-form input[type="text"],
 .signup-form input[type="email"],
