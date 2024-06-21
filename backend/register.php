@@ -17,7 +17,7 @@ if(isset($_POST['signUp'])){
         $insertQuery="INSERT INTO users(fullname,email,password)
                        VALUES ('$fullnamw','$email','$password')";
             if($conn->query($insertQuery)==TRUE){
-                header("location: index.php");
+                header("location: signup.php");
             }
             else{
                 echo "Error:".$conn->error;
