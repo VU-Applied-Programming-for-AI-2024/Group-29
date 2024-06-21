@@ -1,11 +1,10 @@
 <?php 
 
-session_start(); 
-
 include 'connect.php';
 
 if(isset($_POST['signUp'])){
-    $fullname=$_POST['fullname'];
+    $firstName=$_POST['fName'];
+    $lastName=$_POST['lName'];
     $email=$_POST['email'];
     $password=$_POST['password'];
     $password=md5($password);
@@ -16,10 +15,10 @@ if(isset($_POST['signUp'])){
         echo "Email Address Already Exists !";
      }
      else{
-        $insertQuery="INSERT INTO users(fullname,email,password)
-                       VALUES ('$fullname','$email','$password')";
+        $insertQuery="INSERT INTO users(firstName,lastName,email,password)
+                       VALUES ('$firstName','$lastName','$email','$password')";
             if($conn->query($insertQuery)==TRUE){
-                header("location: signup.php");
+                header("location: index.php");
             }
             else{
                 echo "Error:".$conn->error;
@@ -40,7 +39,7 @@ if(isset($_POST['signIn'])){
     session_start();
     $row=$result->fetch_assoc();
     $_SESSION['email']=$row['email'];
-    header("Location: home.php");
+    header("Location: home.html");
     exit();
    }
    else{
