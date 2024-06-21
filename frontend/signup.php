@@ -8,7 +8,7 @@
 </head>
 <body>
     <main>
-        <form class="signup-form", id='SignUp'>
+        <form class="signup-form", name='signUp'>
             <form method = "post" action = "register.php">
             <h2>Sign Up</h2>
             <div class="input-group">

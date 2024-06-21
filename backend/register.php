@@ -1,5 +1,7 @@
 <?php 
 
+session_start(); 
+
 include 'connect.php';
 
 if(isset($_POST['signUp'])){
@@ -15,7 +17,7 @@ if(isset($_POST['signUp'])){
      }
      else{
         $insertQuery="INSERT INTO users(fullname,email,password)
-                       VALUES ('$fullnamw','$email','$password')";
+                       VALUES ('$fullname','$email','$password')";
             if($conn->query($insertQuery)==TRUE){
                 header("location: signup.php");
             }
@@ -38,7 +40,7 @@ if(isset($_POST['signIn'])){
     session_start();
     $row=$result->fetch_assoc();
     $_SESSION['email']=$row['email'];
-    header("Location: homepage.php");
+    header("Location: home.php");
     exit();
    }
    else{
