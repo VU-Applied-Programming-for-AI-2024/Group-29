@@ -1,5 +1,3 @@
-
-/* Body Styles */
 body {
   font-family: 'Arial', sans-serif;
   background-color: #000000;
@@ -8,10 +6,11 @@ body {
   margin-left: 33.92%;
   transition: margin-left 0.5s;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  }
+}
+
 .spark-shine {
   position: absolute;
-  top: 50%; /* Adjust these to position the shine where you want */
+  top: 50%;
   left: 50%;
   width: 100px;
   height: 100px;
@@ -20,44 +19,43 @@ body {
   border-radius: 50%;
 }
 
-  h2 {
-    color: #ffffff; 
+h2 {
+  color: #ffffff; 
 }
 
-  nav {
-    border-radius: 6px;
-    background-image: linear-gradient(to right, #2f2f2f,  #000000); 
-    color: rgba(255, 255, 255, 0.6);
-    cursor: pointer;
-    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3); 
-  }
-  
-  .menu-icon {
-    cursor: pointer;
-    color: white;
-    font-size: 35px; /* Adjust size as needed */
-    position: fixed; /* Keep it fixed during scroll */
-    top: 10px; /* Distance from the top */
-    left: 10px; /* Distance from the left */
-    z-index: 1000; /* Ensures it stays on top */
+nav {
+  border-radius: 6px;
+  background-image: linear-gradient(to right, #2f2f2f,  #000000); 
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3); 
+}
+
+.menu-icon {
+  cursor: pointer;
+  color: white;
+  font-size: 35px;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
 }
 
 .navbar {
-    width: 250px;
-    height: 100%;
-    position: fixed;
-    left: -250px; /* Start off-screen */
-    top: 0;
-    background-color: #626868;
-    overflow-x: hidden;
-    transition: 0.5s; /* Smooth transition */
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  }
-  
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  left: -250px;
+  top: 0;
+  background-color: #626868;
+  overflow-x: hidden;
+  transition: 0.5s;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
 
 .navbar__menu {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 
 .navbar__item {
@@ -74,11 +72,9 @@ body {
 }
 
 .navbar__link:hover {
-  /* background-color: #003060; */
   color: rgb(106, 106, 106);
 }
 
-/* Main content styling */
 main {
   padding: 30px;
   flex-grow: 1;
@@ -87,10 +83,8 @@ main {
   align-items: center;
 }
 
-
-/* Form Styles */
 form {
-  position: relative; /* Make sure the position is set to relative */
+  position: relative;
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 20px;
@@ -110,7 +104,6 @@ form {
 label {
   display: block;
   margin-top: 20px;
-  /* font-weight: bold; */
   color: #ffffff;
   font-size: 115%;
 }
@@ -138,7 +131,6 @@ select, input[type="email"] {
   display: block; 
 }
 
-
 input[type="checkbox"] {
   width: auto;
   margin-right: 10px;
@@ -151,8 +143,6 @@ label[for="emailSubscription"] {
   margin-top: 20px;
 }
 
-
-
 button, input[type="submit"], input[type="button"] {
   background-color: #262929; 
   color: #ffffff;             
@@ -164,7 +154,7 @@ button, input[type="submit"], input[type="button"] {
   transition: background-color 0.3s ease; 
   text-transform: uppercase;  
   font-weight: bold;          
-  display: inline-block;      /* spacing and alignment */
+  display: inline-block;      
   box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
   margin-top: 12px;     
 }
@@ -173,13 +163,10 @@ button:hover, input[type="submit"]:hover, input[type="button"]:hover {
   background-color: #606566;  
 }
 
-
-/* Select dropdown styling */
 select {
   background-position: right center;
   background-repeat: no-repeat;
-  padding-right: 20px; /* Add space for arrow icon */
-  /* Other styling */
+  padding-right: 20px;
   padding: 10px;
   border: 0px solid #322063;
   border-radius: 6px;
@@ -187,9 +174,8 @@ select {
   color: #353434;
 }
 
-/* Hover effect */
 select:hover {
-  border-color: #999; /* Change border color on hover */
+  border-color: #999;
 }
 
 .account-question {
@@ -215,9 +201,6 @@ select:hover {
   background-color: #2b1f88;
 }
 
-
-/* Everything under this till .slider is for the slider button on the settings page. */
-/* The switch - the box around the slider */
 .switch {
   position: relative;
   display: inline-block;
@@ -225,14 +208,12 @@ select:hover {
   height: 34px;
 }
 
-/* Hide default HTML checkbox */
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* The slider */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -271,7 +252,6 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-/* Rounded sliders */
 .slider.round {
   border-radius: 34px;
 }
@@ -280,17 +260,14 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-/* Light Mode Styles */
-/* Light Mode Styles */
 .light-mode {
-  background-color: #b0c4de; /* Light steel blue */
+  background-color: #b0c4de;
   color: rgb(106, 106, 106)
 }
 
 .light-mode form {
-  background-color: rgba(189, 204, 229, 0.9); /* Light steel blue with transparency */
+  background-color: rgba(189, 204, 229, 0.9);
   color: rgb(106, 106, 106);
-  /* box-shadow: 0 0 100px 30px rgb(240, 240, 255) ; */
 }
 
 .light-mode h2 {
@@ -303,7 +280,7 @@ input:checked + .slider:before {
 }
 
 .light-mode nav {
-  background-image: linear-gradient(to right, #769bca,  #b0c4de); 
+  background-image: linear-gradient(to right, #769bca,  #b0c4de);
   border: none;
   border-radius: 6px;
   outline: none;
@@ -312,16 +289,18 @@ input:checked + .slider:before {
 
 .light-mode button, .light-mode input[type="submit"], .light-mode input[type="button"] {
   background-color: rgb(98, 219, 235);
-  color: #fbfbfb; /* Dark text color for contrast */
+  color: #fbfbfb;
 }
 
 .light-mode button:hover, .light-mode input[type="submit"]:hover, .light-mode input[type="button"]:hover {
-  background-color: #b0c4de; /* Even lighter on hover for interactive feedback */
+  background-color: #b0c4de;
 }
+
 .light-mode footer {
-  background-color: #b0c4de; /* Light steel blue */
+  background-color: #b0c4de;
   color: rgb(106, 106, 106);
 }
+
 .content {
   color: rgb(106, 106, 106);
   margin-left: -30%;
@@ -332,17 +311,11 @@ input:checked + .slider:before {
   margin-left: -35%;
 }
 
-
-/* Main content should take up at least the remaining space */
 body {
   display: flex;
   flex-direction: column;
-  /* max-width: 100%; */
 }
 
-
-
-/* Style the footer */
 footer {
   background-color: #000000;
   color: #fff;
@@ -351,8 +324,7 @@ footer {
   width: 50%;
   position: relative;
   margin-left: 0%;
-  transition: margin-left 0.3s ease; /* Smooth transition for footer */
-
+  transition: margin-left 0.3s ease;
 }
 
 .footer-container {
@@ -379,10 +351,9 @@ footer {
 }
 
 .footer-links a:hover {
-  color: #ff6347; /* Example hover color */
+  color: #ff6347;
 }
 
-/* Optional: add some responsiveness */
 @media (max-width: 100%) {
   .footer-links {
       display: block;
@@ -410,7 +381,12 @@ footer {
   align-items: center;
 }
 
-/* Hidden class to hide elements */
 .hidden {
   display: none;
+}
+
+#message {
+  color: white;
+  margin-top: 10px;
+  font-size: 16px;
 }
