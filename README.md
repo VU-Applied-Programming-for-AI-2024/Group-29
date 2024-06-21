@@ -30,3 +30,10 @@ Frontend
 	Create Table: Followed ‘’vs’’ Opponent
 4. Email = email.user.  Database.emails -> send email with Table. 
 
+## Contribution.
+
+- Bastian Brinksma
+- Morris Nijland
+- Denis Akmaikin
+- Bob Verniers
+
