@@ -72,7 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const modeSwitch = document.getElementById('mode-switch');
     const body = document.body;
 
-<<<<<<< Updated upstream
     // Function to apply the saved mode
     const applySavedMode = () => {
         const savedMode = localStorage.getItem('mode');
@@ -96,40 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('mode', isLightMode ? 'light' : 'dark');
         });
     }
-=======
-// New code for handling custom games
-document.addEventListener('DOMContentLoaded', function() {
-    // Function to handle the form submission
-    function handleCustomGameSubmit(event) {
-        event.preventDefault();
-        
-        const sport = document.getElementById('sport').value;
-        const team1 = document.getElementById('team1').value;
-        const team2 = document.getElementById('team2').value;
-        const date = document.getElementById('date').value;
-        const time = document.getElementById('time').value;
-    
-        const game = {
-            sport,
-            teams: `${team1} vs ${team2}`,
-            dateTime: `${date} at ${time}`
-        };
-    
-        addGameToList(game);
-    
-        // Clear form fields after submission
-        document.getElementById('customGameForm').reset();
-    }
-    
-
-    // Function to add game to the UI list
-    function addGameToList(game) {
-        const gamesList = document.getElementById('gamesList');
-        const listItem = document.createElement('li');
-        listItem.textContent = `${game.sport}: ${game.teams} on ${game.dateTime}`;
-        gamesList.appendChild(listItem);
-    }
-
-    document.getElementById('customGameForm').addEventListener('submit', handleCustomGameSubmit);
->>>>>>> Stashed changes
 });
+
+
