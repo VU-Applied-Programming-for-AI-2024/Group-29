@@ -8,7 +8,8 @@
 </head>
 <body>
     <main>
-        <form class="signup-form">
+        <form class="signup-form", id='SignUp'>
+            <form method = "post" action = "register.php">
             <h2>Sign Up</h2>
             <div class="input-group">
                 <label for="fullname">Full Name</label>
