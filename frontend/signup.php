@@ -7,9 +7,8 @@
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <main>
-        <form class="signup-form", name='signUp'>
-            <form method = "post" action = "register.php">
+    <div class="signup-form", name='signUp'>
+        <form method = "post" action = "register.php">
             <h2>Sign Up</h2>
             <div class="input-group">
                 <label for="fullname">Full Name</label>
@@ -27,13 +26,13 @@
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
             </div>
-            <button type="submit">Sign Up</button>
+            <button type="submit" name='signUp' >Sign Up</button>
             <div class="extra-links">
                 <span>Already have an account?</span>
                 <a href="login.html">Login here</a>
             </div>
         </form>
-    </main>
+    </div>
 
     <script>
         const menuIcon = document.querySelector('.menu-icon');

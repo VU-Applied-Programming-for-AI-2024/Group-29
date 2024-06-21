@@ -6,14 +6,15 @@ load_dotenv()
 
 backend = Blueprint('backend', __name__)
 
-def fetch_fixtures(team_id): # Function to fetch fixtures from our API
+# Function to fetch fixtures from our API
+def fetch_fixtures(team_id, league_id):
     try:
         conn = http.client.HTTPSConnection("api-football-v1.p.rapidapi.com")
         headers = {
             'X-RapidAPI-Key': os.getenv('API_KEY'),
             'X-RapidAPI-Host': "api-football-v1.p.rapidapi.com"
         }
-        conn.request("GET", f"/v2/fixtures/team/{team_id}/5858?timezone=Europe/Amsterdam", headers=headers)
+        conn.request("GET", f"/v2/fixtures/team/{team_id}/{league_id}?timezone=Europe/Amsterdam", headers=headers)
         res = conn.getresponse()
         if res.status != 200:
             return None, f'Failed to retrieve data from API. Status code: {res.status}'
@@ -26,11 +27,11 @@ def fetch_fixtures(team_id): # Function to fetch fixtures from our API
 
     except Exception as e:
         return None, str(e)
-    
-    
-@backend.route('/api/teams/<int:team_id>', methods=['GET'])
-def get_team_fixtures(team_id): # this function will be called when the frontend sends a request to the the place where the fixtures are fetched/hold)
-    fixtures, error = fetch_fixtures(team_id) # also does the formatting of the date
+
+# Function to get the team fixtures
+@backend.route('/api/teams/<int:team_id>/<int:league_id>', methods=['GET'])
+def get_team_fixtures(team_id, league_id):
+    fixtures, error = fetch_fixtures(team_id, league_id)
     if error:
         return jsonify({'error': error}), 500
 
@@ -48,20 +49,20 @@ def get_team_fixtures(team_id): # this function will be called when the frontend
         
         team_fixtures.append(f"{home_team} plays {away_team} on {event_date_formatted}")
 
-    output = '<br>'.join(team_fixtures) # still not correct for the frontend
+    output = '<br>'.join(team_fixtures)
     return jsonify({'fixtures': output})
 
-
+# Function to handle the form submission
 @backend.route('/api/submit', methods=['POST'])
-def submit_form(): # this function is used to handle the form submission and makes the teamud available to the frontend
+def submit_form():
     try:
         data = request.json
-        team_id = data.get('teamId') 
+        team_id = data.get('team')
+        league_id = data.get('league')
+        team_name = data.get('teamName')
+        league_name = data.get('leagueName')
 
-        sport = data.get('sport')
-        league = data.get('league')
-        email_subscription = data.get('import') # not used yet but will be
-        return jsonify({'message': 'Form submitted successfully', 'teamId': team_id})
+        return jsonify({'message': f'Successfully followed {team_name} in {league_name}.', 'teamId': team_id})
     
     except Exception as e:
         return jsonify({'error': str(e)}), 500
