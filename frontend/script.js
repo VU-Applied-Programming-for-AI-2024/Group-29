@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     const form = document.getElementById('subscriptionForm');
+    const customGameForm = document.getElementById('customGameForm');
     const messageElement = document.getElementById('message');
     const modeSwitch = document.getElementById('modeSwitch');
     const body = document.body;
@@ -9,6 +10,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
             event.preventDefault();
             handleSubmit();
         };
+    }
+
+    if (customGameForm) {
+        customGameForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            handleCustomGameFormSubmit();
+        });
     }
 
     function handleSubmit() {
@@ -45,6 +53,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
         } else {
             messageElement.textContent = 'Please fill out all fields.';
         }
+    }
+
+    function handleCustomGameFormSubmit() {
+        // Get form data
+        const sport = document.getElementById("sport").value;
+        const team1 = document.getElementById("team1").value;
+        const team2 = document.getElementById("team2").value;
+        const time = document.getElementById("time").value;
+        const date = document.getElementById("date").value;
+
+        // Format date and time properly for Google Calendar
+        const isoDateTime = `${date}T${time}:00Z`;
+
+        // Construct Google Calendar URL
+        const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(`MyGame: ${team1} vs ${team2}`)}&details=${encodeURIComponent(`Sport: ${sport}`)}&dates=${encodeURIComponent(isoDateTime)}`;
+
+        // Open new window with Google Calendar event
+        window.open(calendarUrl, '_blank');
     }
 
     function fetchFixtures(teamId, leagueId) {
@@ -100,16 +126,21 @@ function toggleNav() {
     }
 }
 
-const signUpButton=document.getElementById('signUpButton');
-const signInButton=document.getElementById('signInButton');
-const signInForm=document.getElementById('signIn');
-const signUpForm=document.getElementById('signup');
+const signUpButton = document.getElementById('signUpButton');
+const signInButton = document.getElementById('signInButton');
+const signInForm = document.getElementById('signIn');
+const signUpForm = document.getElementById('signup');
 
-signUpButton.addEventListener('click',function(){
-    signInForm.style.display="none";
-    signUpForm.style.display="block";
-})
-signInButton.addEventListener('click', function(){
-    signInForm.style.display="block";
-    signUpForm.style.display="none";
-})
+if (signUpButton) {
+    signUpButton.addEventListener('click', function(){
+        signInForm.style.display = "none";
+        signUpForm.style.display = "block";
+    });
+}
+
+if (signInButton) {
+    signInButton.addEventListener('click', function(){
+        signInForm.style.display = "block";
+        signUpForm.style.display = "none";
+    });
+}
