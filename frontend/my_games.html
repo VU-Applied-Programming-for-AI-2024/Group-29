@@ -65,6 +65,9 @@
                         <p><strong>Teams:</strong> ${game.team1} vs ${game.team2}</p>
                         <p><strong>Date:</strong> ${game.date}</p>
                         <p><strong>Time:</strong> ${game.time}</p>
+                        <!-- Add to Calendar Button -->
+                        <button class="calendar-button" data-sport="${game.sport}" data-team1="${game.team1}" data-team2="${game.team2}" data-date="${game.date}" data-time="${game.time}">Add to Calendar</button>
+                        <!-- Delete Button -->
                         <button class="delete-button" data-index="${index}">Delete</button>
                     `;
                     gamesContainer.appendChild(gameElement);
@@ -78,6 +81,18 @@
                 if (event.target.classList.contains('delete-button')) {
                     const index = event.target.getAttribute('data-index');
                     deleteGame(index);
+                }
+            });
+
+            // Add event listener to calendar buttons
+            gamesContainer.addEventListener('click', (event) => {
+                if (event.target.classList.contains('calendar-button')) {
+                    const sport = event.target.getAttribute('data-sport');
+                    const team1 = event.target.getAttribute('data-team1');
+                    const team2 = event.target.getAttribute('data-team2');
+                    const date = event.target.getAttribute('data-date');
+                    const time = event.target.getAttribute('data-time');
+                    addToCalendar(sport, team1, team2, date, time);
                 }
             });
 
@@ -101,6 +116,9 @@
                             <p><strong>Teams:</strong> ${game.team1} vs ${game.team2}</p>
                             <p><strong>Date:</strong> ${game.date}</p>
                             <p><strong>Time:</strong> ${game.time}</p>
+                            <!-- Add to Calendar Button -->
+                            <button class="calendar-button" data-sport="${game.sport}" data-team1="${game.team1}" data-team2="${game.team2}" data-date="${game.date}" data-time="${game.time}">Add to Calendar</button>
+                            <!-- Delete Button -->
                             <button class="delete-button" data-index="${index}">Delete</button>
                         `;
                         gamesContainer.appendChild(gameElement);
@@ -108,6 +126,17 @@
                 } else {
                     gamesContainer.innerHTML = "<p>No games added yet.</p>";
                 }
+            }
+
+            // Function to add to Google Calendar
+            function addToCalendar(sport, team1, team2, date, time) {
+                const dateTime = new Date(`${date}T${time}`);
+                const isoDateTime = dateTime.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+
+                // Construct Google Calendar URL
+                const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(`MyGame: ${team1} vs ${team2}`)}&details=${encodeURIComponent(`Sport: ${sport}`)}&dates=${encodeURIComponent(isoDateTime)}/${encodeURIComponent(isoDateTime)}`;
+
+                window.open(calendarUrl, '_blank');
             }
         });
     document.addEventListener("DOMContentLoaded", () => {
