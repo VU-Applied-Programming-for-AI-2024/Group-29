@@ -217,4 +217,4 @@ document.getElementById("addToMyGamesButton").addEventListener("click", () => {
         alert('Please fill in all fields.');
     }
 });
-});
+
