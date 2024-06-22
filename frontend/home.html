@@ -39,7 +39,6 @@
                 <img src="images/MyTEAM_Logo1.png" alt="MyTEAM_Logo" height="200px">
             </div>
         </div>
-
         <form id="subscriptionForm" onsubmit="handleSubmit(event)">
             <div id="step1">
                 <label for="sport">Fill in this form to follow a new team!</label>
@@ -66,8 +65,6 @@
                     <option value="10">England</option>
                     <option value="14">Serbia</option>
                     <option value="15">Switzerland</option>
-
-
                 </select>
             </div>
 
@@ -76,12 +73,17 @@
                 <p id="message"></p>
             </div>
         </form>
+        <div class="match-details">
+            <button id="liveMatchesButton">Live matches</button>
+            <p id="liveMatchesMessage"></p>
+            <div id="liveMatchesContainer">
+            </div>
+        </div>
 
-        <div class="match-details"> <!-- hidden by default -->
+        <div class="match-details"> 
             <p>Example: France vs Netherlands on June 21st at 21:00</p>
             <button id="add-to-calendar">Add to Calendar</button>
         </div>
-
 
     </main>
 

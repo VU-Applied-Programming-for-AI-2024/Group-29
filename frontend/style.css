@@ -321,22 +321,19 @@ footer {
   color: #fff;
   padding: 20px 0;
   text-align: center;
-  width: 50%;
-  position: relative;
-  margin-left: 0%;
-  transition: margin-left 0.3s ease;
+  width: 100%; 
 }
 
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-  margin-left: 0%;
 }
 
 .footer-links {
   list-style: none;
   padding: 10px 0;
+  margin: 0;
 }
 
 .footer-links li {
@@ -354,7 +351,7 @@ footer {
   color: #ff6347;
 }
 
-@media (max-width: 100%) {
+@media (max-width: 768px) {
   .footer-links {
       display: block;
       text-align: center;
