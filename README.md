@@ -34,8 +34,10 @@ Frontend
 ## Contribution.
 We all had to work a bit together throughout the project, it wasn't that one person had to do everything by themselves. Bob and Morris started the backend together, later on Morris took charge with the details of the API implementation. Bob created the customg game and my games section of the website, allowing us to customize a database with the users custom games. Denis and Bastian led the frontend charge, also figuring out the backend of the log in page. 
 
+Bastian and Denis tried to implement a working login and signup system with a database, this database would also be useful to store user preferences later on but we only got it working on local servers. The signup sustem works on our localhost server. We tried different things to make it accesible through the files in github or to deploy the site online but we could not make the login system work because of the issues when making it accesible for non local computers. 
+
 - Bastian Brinksma
 - Morris Nijland
 - Denis Akmaikin
-- Bob Verniers
+- Bob Verniers (2727025)
 

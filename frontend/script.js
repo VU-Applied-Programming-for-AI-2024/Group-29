@@ -115,28 +115,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const body = document.body;
+    const modeSwitch = document.getElementById('mode-switch');
 
-function applySavedMode() {
-    const savedMode = localStorage.getItem('mode');
-    if (savedMode) {
-        const isLightMode = savedMode === 'light';
-        body.classList.toggle('light-mode', isLightMode);
-        if (modeSwitch) {
+    function applySavedMode() {
+        const savedMode = localStorage.getItem('mode');
+        if (savedMode) {
+            const isLightMode = savedMode === 'light';
+            body.classList.toggle('light-mode', isLightMode);
             modeSwitch.checked = isLightMode;
         }
     }
-}
 
     applySavedMode();
 
     if (modeSwitch) {
-        modeSwitch.addEventListener('change', () => {
+        modeSwitch.addEventListener('change', function() {
             const isLightMode = modeSwitch.checked;
             body.classList.toggle('light-mode', isLightMode);
             localStorage.setItem('mode', isLightMode ? 'light' : 'dark');
         });
     }
-
+});
 
 function toggleNav() {
     var nav = document.querySelector('.navbar');
@@ -147,7 +148,7 @@ function toggleNav() {
         body.style.marginLeft = '39%';
     } else {
         nav.style.left = '-250px'; 
-        body.style.marginLeft = '0%';
+        body.style.marginLeft = '34%';
     }
 }
 
