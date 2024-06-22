@@ -45,12 +45,44 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const gamesContainer = document.getElementById("gamesContainer");
+        const gamesContainer = document.getElementById("gamesContainer");
+        let games = JSON.parse(localStorage.getItem("games")) || [];
+        // Display games initially
+        displayGames(games);
+         // Event listeners for game manipulation buttons
+         gamesContainer.addEventListener('click', (event) => {
+            if (event.target.classList.contains('delete-button')) {
+                const index = event.target.getAttribute('data-index');
+                deleteGame(index);
+                displayGames(games); // Redisplay games after deletion
+            } else if (event.target.classList.contains('calendar-button')) {
+                const sport = event.target.getAttribute('data-sport');
+                const team1 = event.target.getAttribute('data-team1');
+                const team2 = event.target.getAttribute('data-team2');
+                const date = event.target.getAttribute('data-date');
+                const time = event.target.getAttribute('data-time');
+                addToCalendar(sport, team1, team2, date, time);
+            }
+        });
 
-            const games = JSON.parse(localStorage.getItem("games")) || [];
+        // Filtering functionality
+        const showAllGamesButton = document.getElementById("showAllGames");
+        const showCustomGamesButton = document.getElementById("showCustomGames");
 
-            if (games.length > 0) {
-                games.forEach((game, index) => {
+        showAllGamesButton.addEventListener("click", () => {
+            displayGames(games); // Might need to fetch the games again if they are updated elsewhere
+        });
+
+        showCustomGamesButton.addEventListener("click", () => {
+            const customGames = games.filter(game => game.isCustom);
+            displayGames(customGames);
+        });
+
+
+        function displayGames(filteredGames) {
+            gamesContainer.innerHTML = "";
+            if (filteredGames.length > 0) {
+                filteredGames.forEach((game, index) => {
                     const gameElement = document.createElement("div");
                     gameElement.className = "match-details";
                     gameElement.innerHTML = `
@@ -66,67 +98,25 @@
                     gamesContainer.appendChild(gameElement);
                 });
             } else {
-                gamesContainer.innerHTML = "<p>No games added yet.</p>";
+        
+                gamesContainer.innerHTML = "<p>No games found.</p>";
             }
+        }
+        function deleteGame(index) {
+            games.splice(index, 1); // Remove game
+            localStorage.setItem('games', JSON.stringify(games)); // Update storage
+        }
+        function addToCalendar(sport, team1, team2, date, time) {
+            const startDateTime = new Date(`${date}T${time}`);
+            const endDateTime = new Date(startDateTime.getTime() + 2 * 60 * 60 * 1000); // Adds two hours in milliseconds
+            const isoStartDateTime = startDateTime.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+            const isoEndDateTime = endDateTime.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+            const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(`MyGame: ${team1} vs ${team2}`)}&details=${encodeURIComponent(`Sport: ${sport}`)}&dates=${encodeURIComponent(isoStartDateTime)}/${encodeURIComponent(isoEndDateTime)}`;
+            
+            window.open(calendarUrl, '_blank');
+        }
 
-            gamesContainer.addEventListener('click', (event) => {
-                if (event.target.classList.contains('delete-button')) {
-                    const index = event.target.getAttribute('data-index');
-                    deleteGame(index);
-                }
-            });
-
-            gamesContainer.addEventListener('click', (event) => {
-                if (event.target.classList.contains('calendar-button')) {
-                    const sport = event.target.getAttribute('data-sport');
-                    const team1 = event.target.getAttribute('data-team1');
-                    const team2 = event.target.getAttribute('data-team2');
-                    const date = event.target.getAttribute('data-date');
-                    const time = event.target.getAttribute('data-time');
-                    addToCalendar(sport, team1, team2, date, time);
-                }
-            });
-
-            function deleteGame(index) {
-                games.splice(index, 1);
-                localStorage.setItem('games', JSON.stringify(games));
-
-                displayGames();
-            }
-
-            function displayGames() {
-                gamesContainer.innerHTML = "";
-                if (games.length > 0) {
-                    games.forEach((game, index) => {
-                        const gameElement = document.createElement("div");
-                        gameElement.className = "match-details";
-                        gameElement.innerHTML = `
-                            <p><strong>Sport:</strong> ${game.sport}</p>
-                            <p><strong>Teams:</strong> ${game.team1} vs ${game.team2}</p>
-                            <p><strong>Date:</strong> ${game.date}</p>
-                            <p><strong>Time:</strong> ${game.time}</p>
-                            <!-- Add to Calendar Button -->
-                            <button class="calendar-button" data-sport="${game.sport}" data-team1="${game.team1}" data-team2="${game.team2}" data-date="${game.date}" data-time="${game.time}">Add to Calendar</button>
-                            <!-- Delete Button -->
-                            <button class="delete-button" data-index="${index}">Delete</button>
-                        `;
-                        gamesContainer.appendChild(gameElement);
-                    });
-                } else {
-                    gamesContainer.innerHTML = "<p>No games added yet.</p>";
-                }
-            }
-
-            function addToCalendar(sport, team1, team2, date, time) {
-                const dateTime = new Date(`${date}T${time}`);
-                const isoDateTime = dateTime.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
-
-                const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(`MyGame: ${team1} vs ${team2}`)}&details=${encodeURIComponent(`Sport: ${sport}`)}&dates=${encodeURIComponent(isoDateTime)}/${encodeURIComponent(isoDateTime)}`;
-
-                window.open(calendarUrl, '_blank');
-            }
-        });
-
+    });
 
     </script>
 </body>
