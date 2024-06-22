@@ -115,6 +115,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const body = document.body;
+    const modeSwitch = document.getElementById('mode-switch');
 
     function applySavedMode() {
         const savedMode = localStorage.getItem('mode');
