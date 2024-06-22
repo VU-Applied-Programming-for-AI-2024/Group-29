@@ -1,12 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <script src="custom_game.js" defer></script>
     <title>Create Custom Game - MYTEAM</title>
 </head>
-
 <body>
+    <div class="menu-icon" onclick="toggleNav()">☰</div>
+    <nav class="navbar">
+        <ul class="navbar__menu">
+            <li class="navbar__item">
+                <a href="login.html" class="navbar__link"><i data-feather="home"></i><span>Login</span></a>
+            </li>
+            <li class="navbar__item">
+                <a href="home.html" class="navbar__link"><i data-feather="home"></i><span>Home</span></a>
+            </li>
+        </ul>
+    </nav>
     <main>
         <h2>Create a Custom Game</h2>
         <form id="customGameForm">
@@ -27,7 +39,6 @@
         
             <input type="submit" value="Add to Calendar">
             <button type="button" class="button" id="addToMyGamesButton">Add to My Games</button>
-
         </form>
     </main>
 
@@ -36,6 +47,6 @@
             <p>&copy; 2024 MyTeam. All rights reserved.</p>
         </div>
     </footer>
-    
 </body>
 </html>
+
