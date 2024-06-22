@@ -101,11 +101,9 @@ form {
   text-align: center;
   margin: 20px;
   background-color: rgba(33, 32, 35, 0.9);
-  display: flez;
   flex-direction: column;
   align-items: center;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -522,9 +520,9 @@ footer {
 }
 
 #customGameForm .button-container {
-  display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 1px;
 }
 
 #customGameForm input[type="submit"],
