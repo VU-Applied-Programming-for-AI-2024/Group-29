@@ -31,7 +31,7 @@ Frontend
 4. Email = email.user.  Database.emails -> send email with Table. 
 
 ## Contribution.
-We all had to work a bit together throughout the project, it wasn't that one person had to do everything by themselves. Bob and Morris started the backend together, later on Morris took charge with the details of the API implementa
+We all had to work a bit together throughout the project, it wasn't that one person had to do everything by themselves. Bob and Morris started the backend together, later on Morris took charge with the details of the API implementation. Bob created the customg game and my games section of the website, allowing us to customize a database with the users custom games. Denis and Bastian led the frontend charge, also figuring out the backend of the log in page. 
 
 - Bastian Brinksma
 - Morris Nijland
