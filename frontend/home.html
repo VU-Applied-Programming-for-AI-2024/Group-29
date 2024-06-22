@@ -10,7 +10,7 @@
     <nav class="navbar">
         <ul class="navbar__menu">
             <li class="navbar__item">
-                <a href="index.html" class="navbar__link"><i data-feather="home"></i><span>Login</span></a>
+                <a href="login.html" class="navbar__link"><i data-feather="home"></i><span>Login</span></a>
             </li>
             <li class="navbar__item">
                 <a href="home.html" class="navbar__link"><i data-feather="home"></i><span>Home</span></a>
@@ -39,29 +39,21 @@
         <form id="subscriptionForm" onsubmit="handleSubmit(event)">
             <div id="step1">
                 <label for="sport">Fill in this form to follow a new team!</label>
-                <select id="sport" name="sport" required>
+                <select id="sport" name="sport" required onchange="updateLeagueOptions()">
                     <option value="">Select a sport</option>
                     <option value="soccer">Soccer</option>
                 </select>
             </div>
 
             <div id="step2">
-                <select id="league" name="league" required>
+                <select id="league" name="league" required onchange="updateTeamOptions()">
                     <option value="">Select A League</option>
-                    <option value="5858">Euro Cup</option>
                 </select>
             </div>
 
             <div id="step3">
                 <select id="team" name="team" required>
                     <option value="">Select A Club</option>
-                    <option value="1">Belgium</option>
-                    <option value="2">France</option>
-                    <option value="3">Croatia</option>
-                    <option value="9">Spain</option>
-                    <option value="10">England</option>
-                    <option value="14">Serbia</option>
-                    <option value="15">Switzerland</option>
                 </select>
             </div>
 
@@ -101,11 +93,7 @@
     </footer>
 
     <script>
-        document.getElementById('add-to-calendar').addEventListener('click', function() {
-            const googleCalendarUrl = 'https://www.google.com/calendar/render?action=TEMPLATE';
-    
-            window.open(googleCalendarUrl, '_blank');
-        });
+
     </script>
     
 </body>

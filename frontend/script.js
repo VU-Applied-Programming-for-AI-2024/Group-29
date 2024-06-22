@@ -116,79 +116,25 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-document.addEventListener("DOMContentLoaded", () => {
-    const fetchedGamesContainer = document.getElementById("fetchedGamesContainer");
-    const add_to_mygames = document.getElementById("add_to_mygames");
-    add_to_mygames.addEventListener("click", () => {
-        const gameElements = fetchedGamesContainer.querySelectorAll("p");
-        const games = [];
-
-        gameElements.forEach(gameElement => {
-            const gameInfo = gameElement.textContent.trim();
-            games.push(gameInfo);
-        });
-
-        // Add games to my games functionality
-        games.forEach(game => {
-            addToMyGames(game);
-        });
-    });
-
-    function addToMyGames(gameInfo) {
-        // Extract game information
-        const [homeTeam, awayTeam, eventDate] = parseGameInfo(gameInfo); // Implement parseGameInfo function
-
-        if (homeTeam && awayTeam && eventDate) {
-            const game = {
-                homeTeam,
-                awayTeam,
-                eventDate,
-                isCustom: false // Assuming fetched games are not custom
-            };
-
-            let games = JSON.parse(localStorage.getItem("games")) || [];
-            games.push(game);
-            localStorage.setItem("games", JSON.stringify(games));
-
-            console.log(`Added to My Games: ${homeTeam} vs ${awayTeam} on ${eventDate}`);
-        }
-    }
-
-    function parseGameInfo(gameInfo) {
-        // Example parsing logic assuming format is "HomeTeam vs AwayTeam on EventDate"
-        const regex = /^(.*?)\s+vs\s+(.*?)\s+on\s+(.*?)$/;
-        const match = gameInfo.match(regex);
-        if (match && match.length === 4) {
-            const homeTeam = match[1];
-            const awayTeam = match[2];
-            const eventDate = match[3];
-            return [homeTeam, awayTeam, eventDate];
-        }
-        return [null, null, null];
-    }
-});
-
-function applySavedMode() {
-    const savedMode = localStorage.getItem('mode');
-    if (savedMode) {
-        const isLightMode = savedMode === 'light';
-        body.classList.toggle('light-mode', isLightMode);
-        if (modeSwitch) {
+    function applySavedMode() {
+        const savedMode = localStorage.getItem('mode');
+        if (savedMode) {
+            const isLightMode = savedMode === 'light';
+            body.classList.toggle('light-mode', isLightMode);
             modeSwitch.checked = isLightMode;
         }
     }
-}
 
     applySavedMode();
 
     if (modeSwitch) {
-        modeSwitch.addEventListener('change', () => {
+        modeSwitch.addEventListener('change', function() {
             const isLightMode = modeSwitch.checked;
             body.classList.toggle('light-mode', isLightMode);
             localStorage.setItem('mode', isLightMode ? 'light' : 'dark');
         });
     }
-
+});
 
 function toggleNav() {
     var nav = document.querySelector('.navbar');
@@ -264,3 +210,51 @@ document.addEventListener("DOMContentLoaded", () => {
     displayGames();
 });
 
+document.getElementById('add-to-calendar').addEventListener('click', function() {
+    const googleCalendarUrl = 'https://www.google.com/calendar/render?action=TEMPLATE';
+    window.open(googleCalendarUrl, '_blank');
+});
+
+function updateLeagueOptions() {
+    const sportSelect = document.getElementById('sport');
+    const leagueSelect = document.getElementById('league');
+
+    // Clear previous options
+    leagueSelect.innerHTML = '';
+
+    if (sportSelect.value === 'soccer') {
+        // Add Euro Cup option
+        const option = document.createElement('option');
+        option.value = 'Euro Cup';
+        option.textContent = 'Euro Cup';
+        leagueSelect.appendChild(option);
+    }
+}
+
+function updateTeamOptions() {
+    const leagueSelect = document.getElementById('league');
+    const teamSelect = document.getElementById('team');
+
+    // Clear previous options
+    teamSelect.innerHTML = '';
+
+    if (leagueSelect.value === 'Euro Cup') {
+        // Add country options for Euro Cup
+        const countries = [
+            { id: 1, name: 'Belgium' },
+            { id: 2, name: 'France' },
+            { id: 3, name: 'Croatia' },
+            { id: 9, name: 'Spain' },
+            { id: 10, name: 'England' },
+            { id: 14, name: 'Serbia' },
+            { id: 15, name: 'Switzerland' }
+        ];
+
+        countries.forEach(country => {
+            const option = document.createElement('option');
+            option.value = country.id;
+            option.textContent = country.name;
+            teamSelect.appendChild(option);
+        });
+    }
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main>
+        <nav class="navbar">
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="login.html" class="navbar__link"><i data-feather="home"></i><span>Login</span></a>
+                </li>
+                <li class="navbar__item">
+                    <a href="home.html" class="navbar__link"><i data-feather="home"></i><span>Home</span></a>
+                </li>
+                <li class="navbar__item">
+                    <a href="about.html" class="navbar__link"><i data-feather="home"></i><span>About</span></a>
+                </li>
+                <li class="navbar__item">
+                    <a href="custom_game.html" class="navbar__link"><i data-feather="new"></i><span>Custom Game</span></a>
+                </li>
+                <li class="navbar__item">
+                    <a href="my_games.html" class="navbar__link"><i data-feather="new"></i><span>My Games</span></a>
+                </li>
+                <li class="navbar__item">
+                    <a href="settings.html" class="navbar__link"><i data-feather="settings"></i><span>Settings</span></a>
+                </li>
+            </ul>
+        </nav>
+        <form class="signup-form" action="signup.php" method="post">
+            <h2>Sign Up</h2>
+            <div class="input-group">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="fullname" required>
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Sign Up</button>
+            <div class="extra-links">
+                <span>Already have an account?</span>
+                <a href="login.html">Login here</a>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 MyTeam. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="#home">+1 800 055 232</a></li>
+                <li><a href="#about">Netherlands, Amsterdam</a></li>
+                <li><a href="#contact">myteam@info.nl</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

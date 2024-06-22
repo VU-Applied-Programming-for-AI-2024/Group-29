@@ -37,5 +37,5 @@ We all had to work a bit together throughout the project, it wasn't that one per
 - Bastian Brinksma
 - Morris Nijland
 - Denis Akmaikin
-- Bob Verniers
+- Bob Verniers (2727025)
 
