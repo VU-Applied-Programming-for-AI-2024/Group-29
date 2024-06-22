@@ -116,6 +116,58 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+document.addEventListener("DOMContentLoaded", () => {
+    const fetchedGamesContainer = document.getElementById("fetchedGamesContainer");
+    const add_to_mygames = document.getElementById("add_to_mygames");
+    add_to_mygames.addEventListener("click", () => {
+        const gameElements = fetchedGamesContainer.querySelectorAll("p");
+        const games = [];
+
+        gameElements.forEach(gameElement => {
+            const gameInfo = gameElement.textContent.trim();
+            games.push(gameInfo);
+        });
+
+        // Add games to my games functionality
+        games.forEach(game => {
+            addToMyGames(game);
+        });
+    });
+
+    function addToMyGames(gameInfo) {
+        // Extract game information
+        const [homeTeam, awayTeam, eventDate] = parseGameInfo(gameInfo); // Implement parseGameInfo function
+
+        if (homeTeam && awayTeam && eventDate) {
+            const game = {
+                homeTeam,
+                awayTeam,
+                eventDate,
+                isCustom: false // Assuming fetched games are not custom
+            };
+
+            let games = JSON.parse(localStorage.getItem("games")) || [];
+            games.push(game);
+            localStorage.setItem("games", JSON.stringify(games));
+
+            console.log(`Added to My Games: ${homeTeam} vs ${awayTeam} on ${eventDate}`);
+        }
+    }
+
+    function parseGameInfo(gameInfo) {
+        // Example parsing logic assuming format is "HomeTeam vs AwayTeam on EventDate"
+        const regex = /^(.*?)\s+vs\s+(.*?)\s+on\s+(.*?)$/;
+        const match = gameInfo.match(regex);
+        if (match && match.length === 4) {
+            const homeTeam = match[1];
+            const awayTeam = match[2];
+            const eventDate = match[3];
+            return [homeTeam, awayTeam, eventDate];
+        }
+        return [null, null, null];
+    }
+});
+
 function applySavedMode() {
     const savedMode = localStorage.getItem('mode');
     if (savedMode) {
