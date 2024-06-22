@@ -31,6 +31,7 @@ Frontend
 4. Email = email.user.  Database.emails -> send email with Table. 
 
 ## Contribution.
+We all had to work a bit together throughout the project, it wasn't that one person had to do everything by themselves. Bob and Morris started the backend together, later on Morris took charge with the details of the API implementa
 
 - Bastian Brinksma
 - Morris Nijland
