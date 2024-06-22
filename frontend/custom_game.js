@@ -35,7 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 team1,
                 team2,
                 time,
-                date
+                date,
+                isCustom: true
             };
 
             let games = JSON.parse(localStorage.getItem("games")) || [];

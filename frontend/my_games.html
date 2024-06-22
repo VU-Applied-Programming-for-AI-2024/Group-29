@@ -35,6 +35,11 @@
     <main>
         <h1>My Games</h1>
         <div id="gamesContainer" class="content"></div>
+        <div class="filters">
+            <label><input type="radio" name="gameFilter" value="all" checked>All Games</label>
+            <label><input type="radio" name="gameFilter" value="custom">Custom Games</label>
+            <label><input type="radio" name="gameFilter" value="professional">Professional Games</label>
+        </div>
     </main>
 
     <footer>
@@ -105,6 +110,74 @@
                 }
             }
         });
+    document.addEventListener("DOMContentLoaded", () => {
+    const gamesContainer = document.getElementById("gamesContainer");
+    const filters = document.querySelectorAll("input[name='gameFilter']");
+
+    // Function to get games from localStorage
+    function getGames() {
+        return JSON.parse(localStorage.getItem("games")) || [];
+    }
+
+    let games = getGames();
+
+    // Initial display of games
+    displayGames(games);
+
+    // Event listener for changing filters
+    filters.forEach(filter => {
+        filter.addEventListener('change', () => {
+            displayFilteredGames(filter.value);
+        });
+    });
+
+    function displayFilteredGames(filter) {
+        let filteredGames = games;
+        if (filter === 'custom') {
+            filteredGames = games.filter(game => game.isCustom === true);
+        } else if (filter === 'professional') {
+            filteredGames = games.filter(game => game.isCustom !== true);
+        }
+        displayGames(filteredGames);
+    }
+
+    // Refresh and display games based on filter
+    function displayGames(filteredGames) {
+        gamesContainer.innerHTML = "";
+        if (filteredGames.length > 0) {
+            filteredGames.forEach((game, index) => {
+                const gameElement = document.createElement("div");
+                gameElement.className = "match-details";
+                gameElement.innerHTML = `
+                    <p><strong>Sport:</strong> ${game.sport}</p>
+                    <p><strong>Teams:</strong> ${game.team1} vs ${game.team2}</p>
+                    <p><strong>Date:</strong> ${game.date}</p>
+                    <p><strong>Time:</strong> ${game.time}</p>
+                    <button class="delete-button" data-index="${index}">Delete</button>
+                `;
+                gamesContainer.appendChild(gameElement);
+            });
+        } else {
+            gamesContainer.innerHTML = "<p>No games matching filter.</p>";
+        }
+    }
+
+    // Event listener for delete buttons
+    gamesContainer.addEventListener('click', (event) => {
+        if (event.target.classList.contains('delete-button')) {
+            const index = event.target.getAttribute('data-index');
+            deleteGame(index);
+        }
+    });
+
+    function deleteGame(index) {
+        // Remove game from array and localStorage
+        games.splice(index, 1);
+        localStorage.setItem('games', JSON.stringify(games));
+        displayFilteredGames(document.querySelector("input[name='gameFilter']:checked").value);
+    }
+});
+
     </script>
 </body>
 </html>
