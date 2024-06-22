@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>My Games - MYTEAM</title>
+</head>
+<body>
+    <main>
+        <h2>My Games</h2>
+        <div id="gamesContainer" class="content"></div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 MyTeam. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const gamesContainer = document.getElementById("gamesContainer");
+
+            // Get games from localStorage
+            const games = JSON.parse(localStorage.getItem("games")) || [];
+
+            // Display games
+            if (games.length > 0) {
+                games.forEach(game => {
+                    const gameElement = document.createElement("div");
+                    gameElement.className = "match-details";
+                    gameElement.innerHTML = `
+                        <p><strong>Sport:</strong> ${game.sport}</p>
+                        <p><strong>Teams:</strong> ${game.team1} vs ${game.team2}</p>
+                        <p><strong>Date:</strong> ${game.date}</p>
+                        <p><strong>Time:</strong> ${game.time}</p>
+                    `;
+                    gamesContainer.appendChild(gameElement);
+                });
+            } else {
+                gamesContainer.innerHTML = "<p>No games added yet.</p>";
+            }
+        });
+    </script>
+</body>
+</html>
