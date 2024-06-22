@@ -151,23 +151,20 @@ function toggleNav() {
     }
 }
 
-const signUpButton=document.getElementById('signUpButton');
-const signInButton=document.getElementById('signInButton');
-const signInForm=document.getElementById('signIn');
-const signUpForm=document.getElementById('signup');
+const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
 
-signUpButton.addEventListener('click',function(){
-    signInForm.style.display="none";
-    signUpForm.style.display="block";
-})
-signInButton.addEventListener('click', function(){
-    signInForm.style.display="block";
-    signUpForm.style.display="none";
-})
+    signUpButton.addEventListener('click', () => {
+    container.classList.add('right-panel-active');
+    });
+    signInButton.addEventListener('click', () => { 
+    container.classList.remove('right-panel-active');
+    });
 
 
 
-document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("customGameForm");
 
     form.addEventListener("submit", (event) => {
