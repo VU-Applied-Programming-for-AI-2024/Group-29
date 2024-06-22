@@ -3,7 +3,7 @@
 $host = 'localhost';
 $user = 'root';
 $pass = '';
-$db = 'login';
+$db = 'id22353456_users';
 $conn = new mysqli($host, $user, $pass, $db);
 if ($conn->connect_error) {
     echo 'Database connection error: ' . $conn->connect_error;

@@ -10,6 +10,7 @@
     <main>
         <form class="signup-form">
             <h2>Sign Up</h2>
+            <form action = "signup.php" method = "post">
             <div class="input-group">
                 <label for="fullname">Full Name</label>
                 <input type="text" id="fullname" name="fullname" required>
