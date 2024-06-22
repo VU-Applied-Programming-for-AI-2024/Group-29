@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('subscriptionForm');
-    const messageElement = document.getElementById('message');
+    const messageElement = document.getElementById('fetchedGamesContainer');
 
     if (form) {
         form.onsubmit = function(event) {
@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 });
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const liveMatchesMessage = document.getElementById('liveMatchesMessage');
