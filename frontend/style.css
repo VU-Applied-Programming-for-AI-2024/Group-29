@@ -460,4 +460,73 @@ footer {
   background-color: #da190b; /* Darker red on hover */
 }
 
+/* Custom CSS for #customGameForm */
 
+#customGameForm {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+#customGameForm h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-size: 24px;
+}
+
+#customGameForm label {
+  display: block;
+  margin-top: 15px;
+  color: #ffffff;
+}
+
+#customGameForm input[type="text"],
+#customGameForm input[type="time"],
+#customGameForm input[type="date"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 15px;
+  border: none;
+  border-bottom: 2px solid #333;
+  background-color: #333;
+  color: #ffffff;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+#customGameForm input[type="text"]:focus,
+#customGameForm input[type="time"]:focus,
+#customGameForm input[type="date"]:focus {
+  border-bottom-color: #007BFF;
+  background-color: #444;
+}
+
+#customGameForm .button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#customGameForm input[type="submit"],
+#customGameForm .button {
+  background-color: #007BFF;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 24px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#customGameForm input[type="submit"]:hover,
+#customGameForm .button:hover {
+  background-color: #0056b3;
+}
