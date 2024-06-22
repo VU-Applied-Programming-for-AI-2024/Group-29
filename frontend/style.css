@@ -19,9 +19,12 @@ body {
   border-radius: 50%;
 }
 
-h2 {
-  color: #ffffff; 
+h1{
+  color: #ffffff;
+  text-align: center;
+  margin-top: 20px;
 }
+
 
 nav {
   border-radius: 6px;
@@ -308,7 +311,16 @@ input:checked + .slider:before {
 
 .content {
   color: rgb(106, 106, 106);
-  margin-left: -30%;
+  margin: 0 auto; /* Center the content */
+  max-width: 800px; /* Optional: Limit the width for better readability */
+  padding: 20px; /* Optional: Add some padding for spacing */
+}
+
+.content h2 {
+  color: #ffffff; 
+  text-align: left;
+  margin-top: 20px;
+
 }
 
 .header-ts {
