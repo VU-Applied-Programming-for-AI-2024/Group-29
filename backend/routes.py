@@ -27,6 +27,7 @@ def fetch_fixtures(team_id, league_id):
         fixtures = data_json.get('api', {}).get('fixtures', [])
         return fixtures, None
 
+
     except Exception as e:
         return None, str(e)
 
