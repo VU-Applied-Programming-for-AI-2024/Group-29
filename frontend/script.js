@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (data.error) {
                 throw new Error(data.error);
             }
-            displayLiveFixtures(data.live_fixtures); // Ensure correct key name from the backend
+            displayLiveFixtures(data.live_fixtures); 
         })
         .catch(error => {
             console.error('Error:', error);
