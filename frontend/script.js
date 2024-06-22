@@ -185,6 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         window.open(calendarUrl, '_blank');
     });
+});
 
 document.getElementById("addToMyGamesButton").addEventListener("click", () => {
     const sport = document.getElementById("sport").value;

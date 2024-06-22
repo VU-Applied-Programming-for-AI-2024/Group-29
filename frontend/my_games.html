@@ -37,6 +37,7 @@
     <main>
         <h2>My Games</h2>
         <div id="gamesContainer" class="content"></div>
+
     </main>
 
     <footer>
@@ -64,10 +65,26 @@
                         <p><strong>Time:</strong> ${game.time}</p>
                     `;
                     gamesContainer.appendChild(gameElement);
+
+                    // Add delete button
+                    const deleteButton = document.createElement("button");
+                    deleteButton.className = "button";
+                    deleteButton.textContent = "Delete Game";
+                    deleteButton.addEventListener("click", () => {
+                        const index = games.indexOf(game);
+                        games.splice(index, 1);
+                        localStorage.setItem("games", JSON.stringify(games));
+                        gamesContainer.removeChild(gameElement);
+                    });
+                    gameElement.appendChild(deleteButton);
+
                 });
             } else {
                 gamesContainer.innerHTML = "<p>No games added yet.</p>";
             }
+
+
+
         });
     </script>
 </body>
