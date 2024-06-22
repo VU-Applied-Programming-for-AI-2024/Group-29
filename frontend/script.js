@@ -214,6 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
     displayGames();
 });
 
+
 document.getElementById('add-to-calendar').addEventListener('click', function() {
     const googleCalendarUrl = 'https://www.google.com/calendar/render?action=TEMPLATE';
     window.open(googleCalendarUrl, '_blank');
