@@ -52,10 +52,8 @@
         document.addEventListener("DOMContentLoaded", () => {
             const gamesContainer = document.getElementById("gamesContainer");
 
-            // Get games from localStorage
             const games = JSON.parse(localStorage.getItem("games")) || [];
 
-            // Display games
             if (games.length > 0) {
                 games.forEach((game, index) => {
                     const gameElement = document.createElement("div");
@@ -76,7 +74,6 @@
                 gamesContainer.innerHTML = "<p>No games added yet.</p>";
             }
 
-            // Add event listener to delete buttons
             gamesContainer.addEventListener('click', (event) => {
                 if (event.target.classList.contains('delete-button')) {
                     const index = event.target.getAttribute('data-index');
@@ -84,7 +81,6 @@
                 }
             });
 
-            // Add event listener to calendar buttons
             gamesContainer.addEventListener('click', (event) => {
                 if (event.target.classList.contains('calendar-button')) {
                     const sport = event.target.getAttribute('data-sport');
@@ -97,11 +93,9 @@
             });
 
             function deleteGame(index) {
-                // Remove game from localStorage
                 games.splice(index, 1);
                 localStorage.setItem('games', JSON.stringify(games));
 
-                // Refresh the games list
                 displayGames();
             }
 
@@ -128,12 +122,10 @@
                 }
             }
 
-            // Function to add to Google Calendar
             function addToCalendar(sport, team1, team2, date, time) {
                 const dateTime = new Date(`${date}T${time}`);
                 const isoDateTime = dateTime.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
 
-                // Construct Google Calendar URL
                 const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(`MyGame: ${team1} vs ${team2}`)}&details=${encodeURIComponent(`Sport: ${sport}`)}&dates=${encodeURIComponent(isoDateTime)}/${encodeURIComponent(isoDateTime)}`;
 
                 window.open(calendarUrl, '_blank');

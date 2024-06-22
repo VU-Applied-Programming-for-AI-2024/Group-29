@@ -12,11 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const time = document.getElementById("time").value;
         const date = document.getElementById("date").value;
 
-        // Format date and time properly for Google Calendar
         const dateTime = new Date(`${date}T${time}`);
         const isoDateTime = dateTime.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
 
-        // Construct Google Calendar URL
         const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(`MyGame: ${team1} vs ${team2}`)}&details=${encodeURIComponent(`Sport: ${sport}`)}&dates=${encodeURIComponent(isoDateTime)}/${encodeURIComponent(isoDateTime)}`;
 
         window.open(calendarUrl, '_blank');
@@ -54,10 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-
-
-
-// add other scripts from script.js
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('subscriptionForm');
