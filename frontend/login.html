@@ -10,7 +10,7 @@
     
     <div class="login-container">
         
-        <form class="login-form">
+        <form class="login-form" id="loginForm"> <!-- Added id="loginForm" to the form -->
             
             <h2>Login</h2>
             <div class="input-group">
@@ -21,11 +21,18 @@
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
             </div>
-            <button type="submit">Login</button>
+            <button type="submit" id="loginButton">Login</button>
             <div class="extra-links">
                 <a href="signup.html">Create an account</a>
             </div>
         </form>
     </div>
+    
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            window.location.href = 'home.html'; 
+        });
+    </script>
 </body>
 </html>

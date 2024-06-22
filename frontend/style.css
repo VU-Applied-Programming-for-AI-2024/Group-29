@@ -505,7 +505,7 @@ footer {
 
 #customGameForm input[type="submit"],
 #customGameForm .button {
-  background-color: #007BFF;
+  background-color: #4CAF50;
   color: #ffffff;
   border: none;
   border-radius: 5px;
@@ -517,5 +517,5 @@ footer {
 
 #customGameForm input[type="submit"]:hover,
 #customGameForm .button:hover {
-  background-color: #0056b3;
+  background-color: #4CAF50;
 }
