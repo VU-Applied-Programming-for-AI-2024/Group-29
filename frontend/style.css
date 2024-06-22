@@ -89,6 +89,10 @@ main {
 
 form {
   position: relative;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
   padding: 20px;
   border-radius: 8px;
   max-width: 500px;
@@ -97,7 +101,7 @@ form {
   text-align: center;
   margin: 20px;
   background-color: rgba(33, 32, 35, 0.9);
-  display: block;
+  display: inline-block;
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
@@ -131,11 +135,6 @@ select, input[type="email"] {
   font-size: 14px; 
   box-sizing: border-box; 
   display: block; 
-}
-
-input[type="checkbox"] {
-  width: auto;
-  margin-right: 10px;
 }
 
 label[for="emailSubscription"] {
@@ -331,7 +330,7 @@ input:checked + .slider:before {
 
 .header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   justify-content: center;
   text-align: center;
