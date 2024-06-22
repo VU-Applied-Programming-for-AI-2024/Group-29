@@ -1,4 +1,3 @@
-# Ensure correct import order and proper configuration
 import http.client
 import os
 import json
@@ -10,7 +9,6 @@ load_dotenv()
 
 backend = Blueprint('backend', __name__)
 
-# Function to fetch fixtures from the API
 def fetch_fixtures(team_id, league_id):
     try:
         conn = http.client.HTTPSConnection("api-football-v1.p.rapidapi.com")
@@ -32,7 +30,6 @@ def fetch_fixtures(team_id, league_id):
     except Exception as e:
         return None, str(e)
 
-# function to get team fixtures
 @backend.route('/api/teams/<int:team_id>/<int:league_id>', methods=['GET'])
 def get_team_fixtures(team_id, league_id):
     fixtures, error = fetch_fixtures(team_id, league_id)
@@ -57,7 +54,6 @@ def get_team_fixtures(team_id, league_id):
     return jsonify({'fixtures': output})
 
 
-# function to handle form submission
 @backend.route('/api/submit', methods=['POST'])
 def submit_form():
     try:

@@ -50,10 +50,8 @@
         document.addEventListener("DOMContentLoaded", () => {
             const gamesContainer = document.getElementById("gamesContainer");
 
-            // Get games from localStorage
             const games = JSON.parse(localStorage.getItem("games")) || [];
 
-            // Display games
             if (games.length > 0) {
                 games.forEach(game => {
                     const gameElement = document.createElement("div");
@@ -66,7 +64,6 @@
                     `;
                     gamesContainer.appendChild(gameElement);
 
-                    // Add delete button
                     const deleteButton = document.createElement("button");
                     deleteButton.className = "button";
                     deleteButton.textContent = "Delete Game";

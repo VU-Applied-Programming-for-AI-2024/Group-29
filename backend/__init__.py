@@ -3,7 +3,7 @@ from flask_cors import CORS
 from backend.routes import backend
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS to allow requests from other domains
+CORS(app)  
 
 app.register_blueprint(backend)
 
