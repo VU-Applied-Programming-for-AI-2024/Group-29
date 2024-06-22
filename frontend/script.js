@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('subscriptionForm');
-    const messageElement = document.getElementById('message');
+    const messageElement = document.getElementById('fetchedGamesContainer');
 
     if (form) {
         form.onsubmit = function(event) {
@@ -62,6 +62,34 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+<<<<<<< Updated upstream
+=======
+document.addEventListener('DOMContentLoaded', () => {
+    const fetchedGamesContainer = document.getElementById('fetchedGamesContainer');
+    const addToMyGamesButton = document.getElementById('add_to_mygames');
+
+    if (addToMyGamesButton) {
+        addToMyGamesButton.addEventListener('click', addGamesToMyGames);
+    }
+
+    function addGamesToMyGames() {
+        const games = JSON.parse(localStorage.getItem('games')) || [];
+        const fixtures = fetchedGamesContainer.querySelectorAll('p'); // Assuming each game is in a <p> tag
+        
+        fixtures.forEach(fixture => {
+            games.push({
+                fixture: fixture.textContent.trim(), // Example: "Belgium vs France on 21 June 21:00"
+                isCustom: false // Assuming fetched games are not custom
+            });
+        });
+
+        localStorage.setItem('games', JSON.stringify(games));
+        alert('Fetched games added to My Games.');
+        window.location.href = 'my_games.html'; // Redirect to my_games.html
+    }
+});
+
+>>>>>>> Stashed changes
 
 
 document.addEventListener('DOMContentLoaded', () => {

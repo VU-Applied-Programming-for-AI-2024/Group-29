@@ -426,6 +426,11 @@ footer {
   margin-top: 10px;
   font-size: 16px;
 }
+#fetchedGamesContainer {
+  color: white;
+  margin-top: 10px;
+  font-size: 16px;
+}
 
 
 #gamesContainer {
