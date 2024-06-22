@@ -89,52 +89,25 @@ main {
 
 form {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
   padding: 35px;
+  padding-left: 60px;
   border-radius: 8px;
   max-width: 500px;
-  width: 90%;  /* Adjust width as necessary for better responsiveness */
-  margin: 0 auto; /* Centers the form horizontally and vertically if the body has display:flex */
+  width: 100%;
+  text-align: center;
+  margin: 20px;
   background-color: rgba(33, 32, 35, 0.9);
+  display: flez;
+  flex-direction: column;
+  align-items: center;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  color: #FFF; /* Ensures text is visible if dark backgrounds are used */
 }
-
-/* Style for form inputs and select boxes */
-input[type="text"], select, input[type="date"], input[type="time"], input[type="submit"] {
-  width: 100%; /* Makes all inputs take the full width of the form */
-  padding: 10px; /* Adds some padding inside the inputs */
-  margin: 10px 0; /* Adds space between the form fields */
-  border-radius: 5px; /* Rounds the corners of the inputs */
-  border: 1px solid #ccc; /* Light gray border for some contrast */
-  box-sizing: border-box; /* Includes padding and border in the width */
-}
-
-input[type="submit"] {
-  background-color: #444; /* Darker background for the submit button */
-  color: white; /* White text color for the button */
-  cursor: pointer; /* Cursor changes to pointer to indicate it's clickable */
-  transition: background-color 0.3s; /* Smooth transition for hover effect */
-}
-
-input[type="submit"]:hover {
-  background-color: #555; /* Slightly lighter gray on hover */
-}
-
-/* Handling responsiveness */
-@media (max-width: 600px) {
-  form {
-      width: 100%; /* Form takes full width on smaller screens */
-      padding: 20px; /* Slightly reduce padding for smaller screens */
-  }
-}
-
-
 
 label {
   display: block;
@@ -143,7 +116,7 @@ label {
   font-size: 115%;
 }
 
-select, input[type="submit"], input[type="checkbox"], input[type="text"], input[type="password"] {
+select, input[type="submit"], input[type="text"], input[type="password"] {
   width: 90%;
   padding: 10px;
   margin-top: 10px;
@@ -191,11 +164,17 @@ button, input[type="submit"], input[type="button"] {
 }
 
 input[type="submit"] {
-  padding: 10px 20px;  /* Adjusted padding to match */
-  font-size: 22px;     /* Adjusted font size to match */
-  border-radius: 4px;  /* Adjusted border radius to match */
-  width: auto;         /* Adjusted width to auto */
+  padding: 10px 20px;  /* Keep the adjusted padding */
+  font-size: 22px;
+  box-sizing: border-box;
+  margin-top: 20px;
+  margin-bottom: 10px; /* Assume you also want to maintain 10px bottom margin */
+  margin-left: calc(-10px); /* Moves the button 10px to the left */
+  border-radius: 4px;
+  width: auto;
+  align-self: center;
 }
+
 
 button:hover, input[type="submit"]:hover, input[type="button"]:hover {
   background-color: #606566;  
@@ -206,9 +185,14 @@ select {
   background-repeat: no-repeat;
   padding-right: 20px;
   padding: 10px;
-  border: 0px solid #322063;
+  border: 2px solid #322063;
   border-radius: 6px;
   font-size: 15px;
+  margin-top: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: center;
+  align-self: center;
   color: #353434;
 }
 
