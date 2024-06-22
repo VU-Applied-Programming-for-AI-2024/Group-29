@@ -164,7 +164,51 @@ const container = document.getElementById('container');
 
 
 
+//for my games cleaned up from my_games.html
 
+document.addEventListener("DOMContentLoaded", () => {
+    const gamesContainer = document.getElementById("gamesContainer");
 
+    // Display games
+    function displayGames() {
+        const games = JSON.parse(localStorage.getItem("games")) || [];
+        gamesContainer.innerHTML = "";
 
+        if (games.length > 0) {
+            games.forEach((game, index) => {
+                const gameElement = document.createElement("div");
+                gameElement.className = "match-details";
+                gameElement.innerHTML = `
+                    <p><strong>Sport:</strong> ${game.sport}</p>
+                    <p><strong>Teams:</strong> ${game.team1} vs ${game.team2}</p>
+                    <p><strong>Date:</strong> ${game.date}</p>
+                    <p><strong>Time:</strong> ${game.time}</p>
+                    <button class="delete-button" data-index="${index}">Delete</button>
+                `;
+                gamesContainer.appendChild(gameElement);
+            });
+        } else {
+            gamesContainer.innerHTML = "<p>No games added yet.</p>";
+        }
+    }
+
+    // Delete game
+    function deleteGame(index) {
+        let games = JSON.parse(localStorage.getItem("games")) || [];
+        games.splice(index, 1);
+        localStorage.setItem('games', JSON.stringify(games));
+        displayGames();
+    }
+
+    // Event listener for delete buttons
+    gamesContainer.addEventListener('click', (event) => {
+        if (event.target.classList.contains('delete-button')) {
+            const index = event.target.getAttribute('data-index');
+            deleteGame(index);
+        }
+    });
+
+    // Initial display of games
+    displayGames();
+});
 
