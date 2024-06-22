@@ -1,5 +1,5 @@
 # Project Title
-![Screenshot](https://github.com/VU-Applied-Programming-for-AI-2024/Group-29/images/Screenshot 2024-06-22 at 23.14.56.png)
+![Screenshot](https://github.com/VU-Applied-Programming-for-AI-2024/Group-29/frontend/images/homepage.png)
 
 ## Brief description of the project
 <p>MYTEAM is your all-in-one solution for tracking and managing your team's games. Follow your favorite teams and add matches you are interested in to your calendar. On the home page, you can easily select a professional team to follow. Choose your team based on the sport and tournament you’re interested in, and stay up-to-date by adding their games to your calendar or your personal game list.
