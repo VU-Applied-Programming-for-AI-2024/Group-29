@@ -138,6 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Open new window with Google Calendar event
         window.open(calendarUrl, '_blank');
     });
+});
 
 document.getElementById("addToMyGamesButton").addEventListener("click", () => {
     // Get form data
