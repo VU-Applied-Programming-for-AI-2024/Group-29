@@ -13,7 +13,7 @@ def fetch_fixtures(team_id, league_id):
     try:
         conn = http.client.HTTPSConnection("api-football-v1.p.rapidapi.com")
         headers = {
-            'X-RapidAPI-Key': os.getenv('API_KEY'),
+            'X-RapidAPI-Key': 'd2e9c50e71msh9c1aa43d831af5cp1b4350jsnd108d9d34ba6',
             'X-RapidAPI-Host': "api-football-v1.p.rapidapi.com"
         }
         conn.request("GET", f"/v2/fixtures/team/{team_id}/{league_id}?timezone=Europe/Amsterdam", headers=headers)
@@ -75,7 +75,7 @@ def fetch_live_fixtures():
     try:
         conn = http.client.HTTPSConnection("api-football-v1.p.rapidapi.com")
         headers = {
-            'X-RapidAPI-Key': os.getenv('API_KEY'),
+            'X-RapidAPI-Key': 'd2e9c50e71msh9c1aa43d831af5cp1b4350jsnd108d9d34ba6',
             'X-RapidAPI-Host': "api-football-v1.p.rapidapi.com"
         }
         conn.request("GET", "/v2/fixtures/live?timezone=Europe/Amsterdam", headers=headers)
