@@ -5,9 +5,8 @@
 <p>MYTEAM is your all-in-one solution for tracking and managing your team's games. Follow your favorite teams and add matches you are interested in to your calendar. On the home page, you can easily select a professional team to follow. Choose your team based on the sport and tournament you’re interested in, and stay up-to-date by adding their games to your calendar or your personal game list.
 In addition to following professional sports, you can create and track your own games. Organize matches with friends and share the events on your calendar, making it easier for everyone to stay informed. View all the games you've added in one place. If you no longer wish to follow a particular game or if you've made an error, you can easily delete the match from your list. There is also a live games section to see the games currently being played. A</p>
 
-## Frontend mockup
-
-
+## starting website:
+Navigate with cmd or terminal to root folder of this repo, install requirements.txt and run 'python3 run.py'
 
 ## Team members
 - Bastian Brinksma, bbr103
