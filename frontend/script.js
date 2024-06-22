@@ -148,7 +148,7 @@ function toggleNav() {
         body.style.marginLeft = '39%';
     } else {
         nav.style.left = '-250px'; 
-        body.style.marginLeft = '34%';
+        body.style.marginLeft = '0%';
     }
 }
 
