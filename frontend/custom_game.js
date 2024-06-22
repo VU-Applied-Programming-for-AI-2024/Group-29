@@ -12,10 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const date = document.getElementById("date").value;
 
         // Format date and time properly for Google Calendar
-        const isoDateTime = `${date}T${time}:00Z`;
+        const dateTime = new Date(`${date}T${time}`);
+        const isoDateTime = dateTime.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
 
         // Construct Google Calendar URL
-        const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(`MyGame: ${team1} vs ${team2}`)}&details=${encodeURIComponent(`Sport: ${sport}`)}&dates=${encodeURIComponent(isoDateTime)}`;
+        const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(`MyGame: ${team1} vs ${team2}`)}&details=${encodeURIComponent(`Sport: ${sport}`)}&dates=${encodeURIComponent(isoDateTime)}/${encodeURIComponent(isoDateTime)}`;
 
         // Open new window with Google Calendar event
         window.open(calendarUrl, '_blank');
