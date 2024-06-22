@@ -41,7 +41,6 @@
     </footer>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
         const gamesContainer = document.getElementById("gamesContainer");
         let games = JSON.parse(localStorage.getItem("games")) || [];
         // Display games initially
@@ -75,7 +74,6 @@
             displayGames(customGames);
         });
 
-
         function displayGames(filteredGames) {
             gamesContainer.innerHTML = "";
             if (filteredGames.length > 0) {
@@ -95,7 +93,6 @@
                     gamesContainer.appendChild(gameElement);
                 });
             } else {
-        
                 gamesContainer.innerHTML = "<p>No games found.</p>";
             }
         }
@@ -113,7 +110,6 @@
             window.open(calendarUrl, '_blank');
         }
 
-    });
     
     </script>
 </body>
