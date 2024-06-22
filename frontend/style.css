@@ -84,6 +84,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 form {
@@ -328,9 +329,19 @@ input:checked + .slider:before {
   margin-left: -35%;
 }
 
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+}
+
 body {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 footer {
@@ -505,7 +516,7 @@ footer {
 
 #customGameForm input[type="submit"],
 #customGameForm .button {
-  background-color: #007BFF;
+  background-color: #4CAF50;
   color: #ffffff;
   border: none;
   border-radius: 5px;
@@ -517,5 +528,5 @@ footer {
 
 #customGameForm input[type="submit"]:hover,
 #customGameForm .button:hover {
-  background-color: #0056b3;
+  background-color: #4CAF50;
 }

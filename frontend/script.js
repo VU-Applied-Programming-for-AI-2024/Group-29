@@ -212,3 +212,51 @@ document.addEventListener("DOMContentLoaded", () => {
     displayGames();
 });
 
+document.getElementById('add-to-calendar').addEventListener('click', function() {
+    const googleCalendarUrl = 'https://www.google.com/calendar/render?action=TEMPLATE';
+    window.open(googleCalendarUrl, '_blank');
+});
+
+function updateLeagueOptions() {
+    const sportSelect = document.getElementById('sport');
+    const leagueSelect = document.getElementById('league');
+
+    // Clear previous options
+    leagueSelect.innerHTML = '';
+
+    if (sportSelect.value === 'soccer') {
+        // Add Euro Cup option
+        const option = document.createElement('option');
+        option.value = 'Euro Cup';
+        option.textContent = 'Euro Cup';
+        leagueSelect.appendChild(option);
+    }
+}
+
+function updateTeamOptions() {
+    const leagueSelect = document.getElementById('league');
+    const teamSelect = document.getElementById('team');
+
+    // Clear previous options
+    teamSelect.innerHTML = '';
+
+    if (leagueSelect.value === 'Euro Cup') {
+        // Add country options for Euro Cup
+        const countries = [
+            { id: 1, name: 'Belgium' },
+            { id: 2, name: 'France' },
+            { id: 3, name: 'Croatia' },
+            { id: 9, name: 'Spain' },
+            { id: 10, name: 'England' },
+            { id: 14, name: 'Serbia' },
+            { id: 15, name: 'Switzerland' }
+        ];
+
+        countries.forEach(country => {
+            const option = document.createElement('option');
+            option.value = country.id;
+            option.textContent = country.name;
+            teamSelect.appendChild(option);
+        });
+    }
+}
