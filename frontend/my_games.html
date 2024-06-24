@@ -45,12 +45,12 @@
         let games = JSON.parse(localStorage.getItem("games")) || [];
         // Display games initially
         displayGames(games);
-         // Event listeners for game manipulation buttons
+         // Event listeners for delete button and add to calendar button
          gamesContainer.addEventListener('click', (event) => {
             if (event.target.classList.contains('delete-button')) {
                 const index = event.target.getAttribute('data-index');
                 deleteGame(index);
-                displayGames(games); // Redisplay games after deletion
+                displayGames(games); // Redisplay games after deletion, this is to refresh the page
             } else if (event.target.classList.contains('calendar-button')) {
                 const sport = event.target.getAttribute('data-sport');
                 const team1 = event.target.getAttribute('data-team1');
@@ -108,7 +108,7 @@
             const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(`MyGame: ${team1} vs ${team2}`)}&details=${encodeURIComponent(`Sport: ${sport}`)}&dates=${encodeURIComponent(isoStartDateTime)}/${encodeURIComponent(isoEndDateTime)}`;
             
             window.open(calendarUrl, '_blank');
-        }
+        } // End of addToCalendar function, same as in custom_game.html but didnt work to call it from there
     
     
     </script>
