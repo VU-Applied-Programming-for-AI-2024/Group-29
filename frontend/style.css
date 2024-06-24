@@ -476,7 +476,7 @@ footer {
   background-color: #da190b; /* Darker red on hover */
 }
 
-/* Custom CSS for #customGameForm */
+/* Custom CSS for #customGameForm. id selector, so this # is specfically for the custom page page */
 
 #customGameForm {
   background-color: #1a1a1a;
