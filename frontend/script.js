@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('subscriptionForm');
     const messageElement = document.getElementById('fetchedGamesContainer');
-    const parseAndAddToMyGamesButton = document.getElementById('parseAndAddToMyGamesButton');
+    const addToMyGames = document.getElementById('addToMyGames');
 
     if (form) {
         form.onsubmit = function(event) {
@@ -10,12 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    if (parseAndAddToMyGamesButton) {
-        parseAndAddToMyGamesButton.onclick = function() {
-            parseAndAddToMyGames();
+    if (addToMyGames) {
+        addToMyGames.onclick = function() {
+            addToMyGames();
         };
     }
-
+    // 1
     function handleSubmit() {
         const sport = document.getElementById('sport').value;
         const league = document.getElementById('league').value;
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
             messageElement.textContent = 'Please fill out all fields.';
         }
     }
-
+    // 3 and 6
     function fetchFixtures(teamId, leagueId) {
         fetch(`http://127.0.0.1:5000/api/teams/${teamId}/${leagueId}`)
             .then(response => response.json())
@@ -67,23 +67,22 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
-    function parseAndAddToMyGames() {
-        const fixtures = messageElement.querySelector('div'); // Assuming fixtures are in a single div
+    function addToMyGames() {
+        const fixtures = messageElement.querySelector('div'); 
         if (fixtures) {
-            const gamesText = fixtures.textContent; // Get the text content of the div
-            const gamesArray = gamesText.split(/(?<=\d{2}:\d{2})/); // Split by the end of each time
+            const gamesText = fixtures.textContent;
+            const gamesArray = gamesText.split(/(?<=\d{2}:\d{2})/);
 
             let games = JSON.parse(localStorage.getItem("games")) || [];
 
             gamesArray.forEach((gameDetails, index) => {
-                gameDetails = gameDetails.trim(); // Trim any whitespace
+                gameDetails = gameDetails.trim(); 
                 console.log(`Game ${index + 1}: ${gameDetails}`);
 
-                // Parse game details (example assumes the format "Team1 vs Team2 on Date at Time")
                 const gameRegex = /(.+?) vs (.+?) on (\d{1,2} \w+ \d{4}) at (\d{2}:\d{2})/;
                 const match = gameDetails.match(gameRegex);
                 if (match) {
-                    const sport = document.getElementById('sport').value; // Assuming sport is still needed
+                    const sport = document.getElementById('sport').value; 
                     const team1 = match[1];
                     const team2 = match[2];
                     const date = match[3];
@@ -220,12 +219,10 @@ const container = document.getElementById('container');
 
 
 
-//for my games cleaned up from my_games.html
 
 document.addEventListener("DOMContentLoaded", () => {
     const gamesContainer = document.getElementById("gamesContainer");
 
-    // Display games
     function displayGames() {
         const games = JSON.parse(localStorage.getItem("games")) || [];
         gamesContainer.innerHTML = "";
@@ -248,7 +245,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Delete game
     function deleteGame(index) {
         let games = JSON.parse(localStorage.getItem("games")) || [];
         games.splice(index, 1);
@@ -256,7 +252,6 @@ document.addEventListener("DOMContentLoaded", () => {
         displayGames();
     }
 
-    // Event listener for delete buttons
     gamesContainer.addEventListener('click', (event) => {
         if (event.target.classList.contains('delete-button')) {
             const index = event.target.getAttribute('data-index');
@@ -264,7 +259,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Initial display of games
     displayGames();
 });
 
@@ -278,11 +272,9 @@ function updateLeagueOptions() {
     const sportSelect = document.getElementById('sport');
     const leagueSelect = document.getElementById('league');
 
-    // Clear previous options
     leagueSelect.innerHTML = '';
 
     if (sportSelect.value === 'soccer') {
-        // Add Euro Cup option
         const option = document.createElement('option');
         option.value = 'Euro Cup';
         option.textContent = 'Euro Cup';
@@ -294,11 +286,9 @@ function updateTeamOptions() {
     const leagueSelect = document.getElementById('league');
     const teamSelect = document.getElementById('team');
 
-    // Clear previous options
     teamSelect.innerHTML = '';
 
     if (leagueSelect.value === 'Euro Cup') {
-        // Add country options for Euro Cup
         const countries = [
             { id: 1, name: 'Belgium' },
             { id: 2, name: 'France' },

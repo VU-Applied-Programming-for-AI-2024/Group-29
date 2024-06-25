@@ -5,10 +5,12 @@ from flask import Blueprint, jsonify, request
 from dotenv import load_dotenv
 import dateutil.parser
 
+
 load_dotenv()
 
 backend = Blueprint('backend', __name__)
 
+# 5
 def fetch_fixtures(team_id, league_id):
     try:
         conn = http.client.HTTPSConnection("api-football-v1.p.rapidapi.com")
@@ -31,6 +33,7 @@ def fetch_fixtures(team_id, league_id):
     except Exception as e:
         return None, str(e)
 
+# 4
 @backend.route('/api/teams/<int:team_id>/<int:league_id>', methods=['GET'])
 def get_team_fixtures(team_id, league_id):
     fixtures, error = fetch_fixtures(team_id, league_id)
@@ -54,7 +57,7 @@ def get_team_fixtures(team_id, league_id):
     output = '<br>'.join(team_fixtures)
     return jsonify({'fixtures': output})
 
-
+# 2
 @backend.route('/api/submit', methods=['POST'])
 def submit_form():
     try:
