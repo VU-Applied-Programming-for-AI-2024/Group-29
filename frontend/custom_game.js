@@ -1,6 +1,8 @@
-//had to make a new js file for this or it wouldnt work, not sure why. 
+//had to make a new js file for this or it wouldnt work, not sure why. but if i added this to the script.js file it wouldnt work.
 
-document.addEventListener("DOMContentLoaded", () => {
+//form submission for adding calendar
+
+document.addEventListener("DOMContentLoaded", () => { //waits for the page to load before running the code
     const form = document.getElementById("customGameForm");
 
     form.addEventListener("submit", (event) => {
@@ -12,13 +14,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const time = document.getElementById("time").value;
         const date = document.getElementById("date").value;
 
-        const dateTime = new Date(`${date}T${time}`);
-        const isoDateTime = dateTime.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+        const dateTime = new Date(`${date}T${time}`); //combines the date and time into one date object
+        const isoDateTime = dateTime.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z'; //Z puts time in UTC. converts the date object to an ISO string and removes the colons and dashes
 
         const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(`MyGame: ${team1} vs ${team2}`)}&details=${encodeURIComponent(`Sport: ${sport}`)}&dates=${encodeURIComponent(isoDateTime)}/${encodeURIComponent(isoDateTime)}`;
 
         window.open(calendarUrl, '_blank');
     });
+
+    //adds game to local storage: 
 
     document.getElementById("addToMyGamesButton").addEventListener("click", () => {
         const sport = document.getElementById("sport").value;
@@ -37,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 isCustom: true
             };
 
-            let games = JSON.parse(localStorage.getItem("games")) || [];
+            let games = JSON.parse(localStorage.getItem("games")) || []; //tries to get games from local storage, if it doesnt exist, it will create an empty array
 
             games.push(game);
 
@@ -52,170 +56,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('subscriptionForm');
-    const messageElement = document.getElementById('message');
-
-    if (form) {
-        form.onsubmit = function(event) {
-            event.preventDefault();
-            handleSubmit();
-        };
-    }
-
-    function handleSubmit() {
-        const sport = document.getElementById('sport').value;
-        const league = document.getElementById('league').value;
-        const team = document.getElementById('team').value;
-        const leagueName = document.getElementById('league').options[document.getElementById('league').selectedIndex].text;
-        const teamName = document.getElementById('team').options[document.getElementById('team').selectedIndex].text;
-
-        if (sport && league && team) {
-            fetch('http://127.0.0.1:5000/api/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ sport, league, team, leagueName, teamName })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.error) {
-                    messageElement.textContent = `Error: ${data.error}`;
-                } else {
-                    messageElement.textContent = data.message;
-                    fetchFixtures(team, league);
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                messageElement.textContent = 'An error occurred. Please try again.';
-            });
-        } else {
-            messageElement.textContent = 'Please fill out all fields.';
-        }
-    }
-
-    function fetchFixtures(teamId, leagueId) {
-        fetch(`http://127.0.0.1:5000/api/teams/${teamId}/${leagueId}`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.error) {
-                    messageElement.textContent += ` Error fetching fixtures: ${data.error}`;
-                } else {
-                    const fixturesElement = document.createElement('div');
-                    fixturesElement.innerHTML = data.fixtures;
-                    messageElement.appendChild(fixturesElement);
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                messageElement.textContent += ' An error occurred fetching fixtures.';
-            });
-    }
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    const liveMatchesMessage = document.getElementById('liveMatchesMessage');
-    const liveMatchesContainer = document.getElementById('liveMatchesContainer');
-    const liveMatchesButton = document.getElementById('liveMatchesButton');
-
-    if (liveMatchesButton) {
-        liveMatchesButton.addEventListener('click', fetchLiveFixtures);
-    }
-
-    function fetchLiveFixtures() {
-        liveMatchesMessage.textContent = 'Fetching live matches...';
-
-        fetch('http://127.0.0.1:5000/api/live', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Failed to fetch live matches');
-            }
-            return response.json();
-        })
-        .then(data => {
-            if (data.error) {
-                throw new Error(data.error);
-            }
-            displayLiveFixtures(data.live_fixtures); 
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            liveMatchesMessage.textContent = 'An error occurred fetching live matches.';
-        });
-    }
-
-    function displayLiveFixtures(fixtures) {
-        liveMatchesContainer.innerHTML = '';
-
-        if (!fixtures || fixtures.length === 0) {
-            liveMatchesMessage.textContent = 'No live fixtures found.';
-            return;
-        }
-
-        fixtures.forEach(fixture => {
-            const fixtureElement = document.createElement('p');
-            fixtureElement.textContent = `${fixture.home_team} vs ${fixture.away_team} on ${fixture.event_date}`;
-            liveMatchesContainer.appendChild(fixtureElement);
-        });
-
-        liveMatchesMessage.textContent = '';
-    }
-});
-
-
-function applySavedMode() {
-    const savedMode = localStorage.getItem('mode');
-    if (savedMode) {
-        const isLightMode = savedMode === 'light';
-        body.classList.toggle('light-mode', isLightMode);
-        if (modeSwitch) {
-            modeSwitch.checked = isLightMode;
-        }
-    }
-}
-
-    applySavedMode();
-
-    if (modeSwitch) {
-        modeSwitch.addEventListener('change', () => {
-            const isLightMode = modeSwitch.checked;
-            body.classList.toggle('light-mode', isLightMode);
-            localStorage.setItem('mode', isLightMode ? 'light' : 'dark');
-        });
-    }
-
-
-    function toggleNav() {
-        var nav = document.querySelector('.navbar');
-        var body = document.querySelector('body');
-        var computedStyle = window.getComputedStyle(nav).left;
-        if (computedStyle === '-250px') {
-            nav.style.left = '0'; 
-            body.style.marginLeft = '39%';
-        } else {
-            nav.style.left = '-250px'; 
-            body.style.marginLeft = '0%';
-        }
-    }
-
-const signUpButton = document.getElementById('signUp');
-const signInButton = document.getElementById('signIn');
-const container = document.getElementById('container');
-
-    signUpButton.addEventListener('click', () => {
-    container.classList.add('right-panel-active');
-    });
-    signInButton.addEventListener('click', () => { 
-    container.classList.remove('right-panel-active');
-    });
 
 
 
