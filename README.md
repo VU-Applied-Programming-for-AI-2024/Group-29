@@ -16,12 +16,10 @@ In addition to following professional sports, you can create and track your own 
 
 ## Installation details
 1. Navigate with cmd or terminal to root folder of this repository (By copying the path of the repository folder and writing cd 'copied path' in the cmd).
-2. Then install requirements.txt inside the root folder, you can do that by copying the list in the         requirements.txt file and paste it after writing pip install in the cmd. 
-You can also do 'pip install -r requirements.txt' If you are in the correct folder in the cmd.
+2. Then install requirements.txt inside the root folder, you can do that by copying the list in the requirements.txt file and paste it after writing pip install -r in the cmd. 
 3. While you are still in the same location of the root folder you can run the website by writing:
    python run.py
-4. A new tab will open where you will be able to find something similar 
-   to this ->  * Running on http://127.0.0.1:5000, that is the link to our website, copy it into your browser.
+4. then open new tab where you will be able to find the website. ->  * Running on http://127.0.0.1:5000, that is the link to our website, copy it into your browser.
 
 ## Architecture
 Frontend 

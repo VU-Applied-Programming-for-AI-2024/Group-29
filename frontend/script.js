@@ -1,11 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('subscriptionForm');
     const messageElement = document.getElementById('fetchedGamesContainer');
+    const parseAndAddToMyGamesButton = document.getElementById('addtomygames');
 
     if (form) {
         form.onsubmit = function(event) {
             event.preventDefault();
             handleSubmit();
+        };
+    }
+
+    if (parseAndAddToMyGamesButton) {
+        parseAndAddToMyGamesButton.onclick = function() {
+            parseAndAddToMyGames();
         };
     }
 
@@ -58,6 +65,51 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Error:', error);
                 messageElement.textContent += ' An error occurred fetching fixtures.';
             });
+    }
+
+    function parseAndAddToMyGames() {
+        const fixtures = messageElement.querySelector('div'); // Assuming fixtures are in a single div
+        if (fixtures) {
+            const gamesText = fixtures.textContent; // Get the text content of the div
+            const gamesArray = gamesText.split(/(?<=\d{2}:\d{2})/); // Split by the end of each time
+
+            let games = JSON.parse(localStorage.getItem("games")) || [];
+
+            gamesArray.forEach((gameDetails, index) => {
+                gameDetails = gameDetails.trim(); // Trim any whitespace
+                console.log(`Game ${index + 1}: ${gameDetails}`);
+
+                // Parse game details (example assumes the format "Team1 vs Team2 on Date at Time")
+                const gameRegex = /(.+?) vs (.+?) on (\d{1,2} \w+ \d{4}) at (\d{2}:\d{2})/;
+                const match = gameDetails.match(gameRegex);
+                if (match) {
+                    const sport = document.getElementById('sport').value; // Assuming sport is still needed
+                    const team1 = match[1];
+                    const team2 = match[2];
+                    const date = match[3];
+                    const time = match[4];
+
+                    const game = {
+                        sport,
+                        team1,
+                        team2,
+                        time,
+                        date,
+                        isCustom: true
+                    };
+
+                    games.push(game);
+                }
+            });
+
+            localStorage.setItem("games", JSON.stringify(games));
+
+            alert(`Games added to My Games: ${gamesArray.length}`);
+
+            window.location.href = "my_games.html";
+        } else {
+            console.log('No fixtures found to parse.');
+        }
     }
 });
 

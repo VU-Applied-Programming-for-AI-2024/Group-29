@@ -85,7 +85,6 @@ def fetch_live_fixtures():
             return None, f'Failed to retrieve data from API. Status code: {res.status}'
 
         data = res.read().decode("utf-8")
-        print(data)  
         
         data_json = json.loads(data)
         fixtures = data_json.get('api', {}).get('fixtures', [])
