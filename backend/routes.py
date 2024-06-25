@@ -73,7 +73,7 @@ def submit_form():
         return jsonify({'error': str(e)}), 500
 
 
-
+# 3
 def fetch_live_fixtures():
     try:
         conn = http.client.HTTPSConnection("api-football-v1.p.rapidapi.com")
@@ -103,7 +103,7 @@ def fetch_live_fixtures():
         return None, str(e)
 
     
-
+# 2
 @backend.route('/api/live', methods=['GET'])
 def get_live_fixtures():
     fixtures, error = fetch_live_fixtures()

@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (liveMatchesButton) {
         liveMatchesButton.addEventListener('click', fetchLiveFixtures);
     }
-
+    // 1
     function fetchLiveFixtures() {
         liveMatchesMessage.textContent = 'Fetching live matches...';
 
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
             liveMatchesMessage.textContent = 'An error occurred fetching live matches.';
         });
     }
-
+    // 4
     function displayLiveFixtures(fixtures) {
         liveMatchesContainer.innerHTML = '';
 
