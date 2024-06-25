@@ -3,7 +3,8 @@
 include 'connect.php';
 
 if(isset($_POST['signUp'])){
-    $fullname=$_POST['fullname'];
+    $firstName=$_POST['firstName'];
+    $lastName=$_POST['lastName'];
     $username=$_POST['username'];
     $email=$_POST['email'];
     $password=$_POST['password'];
@@ -15,7 +16,7 @@ if(isset($_POST['signUp'])){
         echo "Email Address Already Exists !";
      }
      else{
-        $insertQuery="INSERT INTO users(fullname,username,email,password)
+        $insertQuery="INSERT INTO users(firstName,lastName,username,email,password)
                        VALUES ('$fullname','$username','$email','$password')";
             if($conn->query($insertQuery)==TRUE){
                 header("location: login.html");
