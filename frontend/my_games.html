@@ -40,39 +40,25 @@
         </div>
     </footer>
 
-    <script>
+    <script> //had to put the script in here, because it didnt work to call the function from custom_game.html or if i put the code in the script.js file it wouldnt connect to the html file
         const gamesContainer = document.getElementById("gamesContainer");
-        let games = JSON.parse(localStorage.getItem("games")) || [];
-        // Display games initially
+        let games = JSON.parse(localStorage.getItem("games")) || []; //retrieve games from local storage
         displayGames(games);
-         // Event listeners for delete button and add to calendar button
-         gamesContainer.addEventListener('click', (event) => {
-            if (event.target.classList.contains('delete-button')) {
-                const index = event.target.getAttribute('data-index');
-                deleteGame(index);
-                displayGames(games); // Redisplay games after deletion, this is to refresh the page
-            } else if (event.target.classList.contains('calendar-button')) {
-                const sport = event.target.getAttribute('data-sport');
-                const team1 = event.target.getAttribute('data-team1');
-                const team2 = event.target.getAttribute('data-team2');
-                const date = event.target.getAttribute('data-date');
-                const time = event.target.getAttribute('data-time');
-                addToCalendar(sport, team1, team2, date, time);
-            }
-        });
+        gamesContainer.addEventListener('click', (event) => {
+           if (event.target.classList.contains('delete-button')) {
+               const index = event.target.getAttribute('data-index');
+               deleteGame(index);
+               displayGames(games); // Redisplay games after deletion, this is to refresh the page
+           } else if (event.target.classList.contains('calendar-button')) {
+               const sport = event.target.getAttribute('data-sport');
+               const team1 = event.target.getAttribute('data-team1');
+               const team2 = event.target.getAttribute('data-team2');
+               const date = event.target.getAttribute('data-date');
+               const time = event.target.getAttribute('data-time');
+               addToCalendar(sport, team1, team2, date, time);
+           }
+       });
 
-        // Filtering functionality
-        const showAllGamesButton = document.getElementById("showAllGames");
-        const showCustomGamesButton = document.getElementById("showCustomGames");
-
-        showAllGamesButton.addEventListener("click", () => {
-            displayGames(games); // Might need to fetch the games again if they are updated elsewhere
-        });
-
-        showCustomGamesButton.addEventListener("click", () => {
-            const customGames = games.filter(game => game.isCustom);
-            displayGames(customGames);
-        });
 
         function displayGames(filteredGames) {
             gamesContainer.innerHTML = "";
