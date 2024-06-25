@@ -39,7 +39,7 @@ Frontend
 4. Add chosen game to google calendar or 'my games'.
 
 ## Contribution.
-We all had to work a bit together throughout the project, it wasn't that one person had to do everything by themselves. Bob and Morris started the backend together, later on Morris took charge with the details of the API implementation. Bob created the customg game and my games section of the website, allowing us to customize a database with the users custom games. Denis and Bastian led the frontend charge, also figuring out the backend of the log in page. 
+We all had to work a bit together throughout the project, it wasn't that one person had to do everything by themselves. Bob and Morris started the backend together, later on Morris took charge with the details of the API implementation. Bob created the custom game and my games section of the website, allowing us to customize a local database with the users custom games. Denis and Bastian led the frontend charge, also figuring out the backend of the log in page. We helped eachother a lot by doing group calls and coding together.
 
 Bastian and Denis tried to implement a working login and signup system with a database, this database would also be useful to store user preferences later on but we only got it working on local servers. The signup system works on our localhost server. We tried different things to make it accesible through the files in github or to deploy the site online but we could not make the login system work because of the issues when making it accesible for non local computers. 
 
