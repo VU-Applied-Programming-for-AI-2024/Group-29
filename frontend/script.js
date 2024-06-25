@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('subscriptionForm');
     const messageElement = document.getElementById('fetchedGamesContainer');
-    const parseAndAddToMyGamesButton = document.getElementById('addtomygames');
+    const parseAndAddToMyGamesButton = document.getElementById('parseAndAddToMyGamesButton');
 
     if (form) {
         form.onsubmit = function(event) {
@@ -112,6 +112,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
