@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => { //waits for the page to lo
                 team2,
                 time,
                 date,
-                isCustom: true
+                isCustom: true //this is a custom game no longer useful but maybe for future adaptations. 
             };
 
             let games = JSON.parse(localStorage.getItem("games")) || []; //tries to get games from local storage, if it doesnt exist, it will create an empty array
