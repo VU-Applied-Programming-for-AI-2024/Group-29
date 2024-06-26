@@ -337,6 +337,17 @@ footer {
   font-size: 16px;
 }
 
+.share-button {
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
 
 #gamesContainer {
   display: flex;
