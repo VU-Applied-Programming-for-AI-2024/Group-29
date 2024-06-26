@@ -166,7 +166,7 @@ input[type="submit"] {
   font-size: 22px;
   box-sizing: border-box;
   margin-top: 20px;
-  margin-bottom: 10px; /* Assume you also want to maintain 10px bottom margin */
+  margin-bottom: 10px; /
   margin-left: calc(-10px); /* Moves the button 10px to the left */
   border-radius: 4px;
   width: auto;
@@ -223,8 +223,8 @@ input:checked + .slider:before {
 .content {
   color: rgb(106, 106, 106);
   margin: 0 auto; /* Center the content */
-  max-width: 800px; /* Optional: Limit the width for better readability */
-  padding: 20px; /* Optional: Add some padding for spacing */
+  max-width: 800px; 
+  padding: 20px; 
 }
 
 .content h2 {
@@ -347,15 +347,15 @@ footer {
 
 .calendar-button {
   background-color: #4CAF50; /* Green background */
-  border: none; /* Remove border */
-  color: white; /* White text */
+  border: none; 
+  color: white; 
   padding: 10px 20px; /* Some padding */
   text-align: center; /* Centered text */
-  text-decoration: none; /* Remove underline */
-  display: inline-block; /* Make the button inline-block */
-  font-size: 16px; /* Increase font size */
-  margin: 4px 2px; /* Some margin */
-  cursor: pointer; /* Pointer/hand icon */
+  text-decoration: none; 
+  display: inline-block; 
+  font-size: 16px;
+  margin: 4px 2px; 
+  cursor: pointer; 
   border-radius: 12px; /* Rounded corners */
 }
 
@@ -364,16 +364,16 @@ footer {
 }
 
 .delete-button {
-  background-color: #f44336; /* Red background */
-  border: none; /* Remove border */
-  color: white; /* White text */
-  padding: 10px 20px; /* Some padding */
-  text-align: center; /* Centered text */
-  text-decoration: none; /* Remove underline */
+  background-color: #f44336; 
+  border: none; 
+  color: white; 
+  padding: 10px 20px; 
+  text-align: center;
+  text-decoration: none; 
   display: inline-block; /* Make the button inline-block */
-  font-size: 16px; /* Increase font size */
-  margin: 4px 2px; /* Some margin */
-  cursor: pointer; /* Pointer/hand icon */
+  font-size: 16px; 
+  margin: 4px 2px; 
+  cursor: pointer; 
   border-radius: 12px; /* Rounded corners */
 }
 
