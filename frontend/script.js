@@ -68,10 +68,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function addToMyGames() {
-        const fixtures = messageElement.querySelector('div'); 
+        const fixtures = messageElement.querySelector('div');
         if (fixtures) {
             const gamesText = fixtures.textContent;
-            const gamesArray = gamesText.split(/(?<=\d{2}:\d{2})/);
+            const gamesArray = gamesText.split(/(?<=\d{2}:\d{2})/); 
 
             let games = JSON.parse(localStorage.getItem("games")) || [];
 
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const gameRegex = /(.+?) vs (.+?) on (\d{1,2} \w+ \d{4}) at (\d{2}:\d{2})/;
                 const match = gameDetails.match(gameRegex);
                 if (match) {
-                    const sport = document.getElementById('sport').value; 
+                    const sport = document.getElementById('sport').value; ]
                     const team1 = match[1];
                     const team2 = match[2];
                     const date = match[3];
