@@ -56,9 +56,16 @@
                const date = event.target.getAttribute('data-date');
                const time = event.target.getAttribute('data-time');
                addToCalendar(sport, team1, team2, date, time);
-           }
+           } else if (event.target.classList.contains('share-button')) {
+               const sport = event.target.getAttribute('data-sport');
+               const team1 = event.target.getAttribute('data-team1');
+               const team2 = event.target.getAttribute('data-team2');
+               const date = event.target.getAttribute('data-date');
+               const time = event.target.getAttribute('data-time');
+               const calendarUrl = generateCalendarURL(sport, team1, team2, date, time);
+               copyToClipboard(calendarUrl);
+    }
        });
-
 
         function displayGames(filteredGames) {
             gamesContainer.innerHTML = "";
@@ -73,6 +80,8 @@
                         <p><strong>Time:</strong> ${game.time}</p>
                         <!-- Add to Calendar Button -->
                         <button class="calendar-button" data-sport="${game.sport}" data-team1="${game.team1}" data-team2="${game.team2}" data-date="${game.date}" data-time="${game.time}">Add to Calendar</button>
+                        <!-- Share Button -->
+                        <button class="share-button" data-sport="${game.sport}" data-team1="${game.team1}" data-team2="${game.team2}" data-date="${game.date}" data-time="${game.time}">Share</button>
                         <!-- Delete Button -->
                         <button class="delete-button" data-index="${index}">Delete</button>
                     `;
@@ -95,7 +104,23 @@
             
             window.open(calendarUrl, '_blank');
         } // End of addToCalendar function, same as in custom_game.html but didnt work to call it from there
-    
+        
+        function generateCalendarURL(sport, team1, team2, date, time) {
+            const startDateTime = new Date(`${date}T${time}`);
+            const endDateTime = new Date(startDateTime.getTime() + 2 * 60 * 60 * 1000); // Adds two hours
+            const isoStartDateTime = startDateTime.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+            const isoEndDateTime = endDateTime.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+            return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(`MyGame: ${team1} vs ${team2}`)}&details=${encodeURIComponent(`Sport: ${sport}`)}&dates=${encodeURIComponent(isoStartDateTime)}/${encodeURIComponent(isoEndDateTime)}`;
+        }
+        
+        function copyToClipboard(url) {
+            navigator.clipboard.writeText(url).then(() => {
+                alert("Link copied! You can share the Google Event with someone.");
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                alert("Failed to copy link. Please try again!");
+            });
+        }
 
     </script>
 </body>
