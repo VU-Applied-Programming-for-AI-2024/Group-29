@@ -357,10 +357,10 @@ footer {
 }
 
 .calendar-button {
-  background-color: #4CAF50; /* Green background */
+  background-color: #4CAF50; 
   border: none; 
   color: white; 
-  padding: 10px 20px; /* Some padding */
+  padding: 10px 20px; 
   text-align: center; /* Centered text */
   text-decoration: none; 
   display: inline-block; 

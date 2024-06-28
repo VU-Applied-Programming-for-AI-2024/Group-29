@@ -2,7 +2,7 @@
 ![Screenshot](frontend/images/homepage.png)
 
 ## Brief description of the project
-MYTEAM is your all-in-one solution for tracking and managing your team's games. Follow your favorite teams and add matches you are interested in to your calendar. On the home page, you can easily select a professional team to follow. Choose your team based on the sport and tournament you’re interested in, and stay up-to-date by adding their games to your calendar or your personal game list.
+MYTEAM is your all-in-one solution for tracking and managing your team's (and personal) games. Follow your favorite teams and add matches you are interested in to your calendar. On the home page, you can easily select a professional team to follow. Choose your team based on the sport and tournament you’re interested in, and stay up-to-date by adding their games to your calendar or your personal game list.
 In addition to following professional sports, you can create and track your own games. Organize matches with friends and share the events on your calendar, making it easier for everyone to stay informed. View all the games you've added in one place. If you no longer wish to follow a particular game or if you've made an error, you can easily delete the match from your list. There is also a live games section to see the games currently being played. A
 
 
@@ -18,20 +18,18 @@ In addition to following professional sports, you can create and track your own 
 1. Navigate with cmd or terminal to root folder of this repository (By copying the path of the repository folder and writing cd 'copied path' in the cmd).
 2. Then install requirements.txt inside the root folder, you can do that by copying the list in the requirements.txt file and paste it after writing pip install -r in the cmd. 
 3. While you are still in the same location of the root folder you can run the website by writing:
-   python run.py
+   python run.py (python3 may be necessary)
 4. then open new tab where you will be able to find the website. ->  * Running on http://127.0.0.1:5000, that is the link to our website, copy it into your browser.
 
 ## Architecture
-Frontend 
+Home Page 
 1. Select Sport -> Sport_name.  Sport_name = Database.Sport -> Sport_name_id
 	Sport_name_id -> Sport.Teams, Sport.Games, etc
 
 2. Select Player -> Team_name.  Team_Name = Database.Team ->Team_id
 	Database.TeamName_id -> D.Team_stats (includes basic info and games.)
 
-
-
-3.Select Top -> Rank of the opponent. Database.Team_rank = Database.Team_id1
+3. Select Top -> Rank of the opponent. Database.Team_rank = Database.Team_id1
 	-> Team_id -> Followed_team, team_id1 = Opponent, 
 	Database.Games -> Date,Team_id.
 	Create Table: Followed ‘’vs’’ Opponent
