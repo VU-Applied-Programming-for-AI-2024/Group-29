@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('subscriptionForm');
     const messageElement = document.getElementById('fetchedGamesContainer');
-    const addToMyGames = document.getElementById('addToMyGames');
 
     if (form) {
         form.onsubmit = function(event) {
@@ -10,12 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    if (addToMyGames) {
-        addToMyGames.onclick = function() {
-            addToMyGames();
-        };
-    }
-    // 1
     function handleSubmit() {
         const sport = document.getElementById('sport').value;
         const league = document.getElementById('league').value;
@@ -48,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             messageElement.textContent = 'Please fill out all fields.';
         }
     }
-    // 3 and 6
+
     function fetchFixtures(teamId, leagueId) {
         fetch(`http://127.0.0.1:5000/api/teams/${teamId}/${leagueId}`)
             .then(response => response.json())
@@ -65,50 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Error:', error);
                 messageElement.textContent += ' An error occurred fetching fixtures.';
             });
-    }
-
-    function addToMyGames() {
-        const fixtures = messageElement.querySelector('div');
-        if (fixtures) {
-            const gamesText = fixtures.textContent;
-            const gamesArray = gamesText.split(/(?<=\d{2}:\d{2})/); 
-
-            let games = JSON.parse(localStorage.getItem("games")) || [];
-
-            gamesArray.forEach((gameDetails, index) => {
-                gameDetails = gameDetails.trim(); 
-                console.log(`Game ${index + 1}: ${gameDetails}`);
-
-                const gameRegex = /(.+?) vs (.+?) on (\d{1,2} \w+ \d{4}) at (\d{2}:\d{2})/;
-                const match = gameDetails.match(gameRegex);
-                if (match) {
-                    const sport = document.getElementById('sport').value; ]
-                    const team1 = match[1];
-                    const team2 = match[2];
-                    const date = match[3];
-                    const time = match[4];
-
-                    const game = {
-                        sport,
-                        team1,
-                        team2,
-                        time,
-                        date,
-                        isCustom: true
-                    };
-
-                    games.push(game);
-                }
-            });
-
-            localStorage.setItem("games", JSON.stringify(games));
-
-            alert(`Games added to My Games: ${gamesArray.length}`);
-
-            window.location.href = "my_games.html";
-        } else {
-            console.log('No fixtures found to parse.');
-        }
     }
 });
 
